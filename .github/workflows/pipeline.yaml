@@ -1,0 +1,19 @@
+name: Use OpenKCM Pipeline Template
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  use-template:
+    uses: openkcm/pipeline-template/.github/workflows/pipeline-template.yaml@feature/init
+    with:
+      go-version: '1.19'
+      gcp-service-account-key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+      gcp-project-id: ${{ secrets.GCP_PROJECT_ID }}
+      app-name: 'dummy-service'
