@@ -11,7 +11,7 @@ on:
 
 jobs:
   use-template:
-    uses: openkcm/pipeline-template/.github/workflows/pipeline.yaml@feature/init
+    uses: openkcm/pipeline-template/.github/workflows/pipeline.yaml@main
     with:
       go-version: '1.19'
       gcp-service-account-key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
