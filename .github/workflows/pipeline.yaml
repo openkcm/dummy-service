@@ -13,7 +13,7 @@ jobs:
   use-template:
     uses: openkcm/pipeline-template/.github/workflows/pipeline.yaml@main
     with:
-      go-version: '1.19'
-      gcp-service-account-key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
-      gcp-project-id: ${{ secrets.GCP_PROJECT_ID }}
+      go-version: '1.24'
+      gcp-service-account-key: "test"
+      gcp-project-id: "test"
       app-name: 'dummy-service'
