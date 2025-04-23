@@ -16,3 +16,4 @@ jobs:
       go-version: '1.24'
       app-name: 'dummy-service'
       library: true
+    secrets: inherit
