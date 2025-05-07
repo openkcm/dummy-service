@@ -8,7 +8,7 @@ on:
   pull_request:
     branches:
       - main
-
+permissions: write-all
 jobs:
   use-template:
     uses: openkcm/pipeline-template/.github/workflows/pipeline.yaml@main
