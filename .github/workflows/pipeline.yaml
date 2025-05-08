@@ -1,10 +1,6 @@
 name: Use OpenKCM Pipeline Template
 
 on:
-  push:
-    branches:
-      - main
-      - feature/*
   pull_request:
     types: [closed]
     branches:
