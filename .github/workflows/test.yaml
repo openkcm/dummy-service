@@ -1,4 +1,4 @@
-name: Use OpenKCM Pipeline Template
+name: TestPipeline
 
 on:
   push:
