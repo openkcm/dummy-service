@@ -5,6 +5,8 @@ on:
     branches:
       - feature/*
       - bug/*
+      
+permissions: write-all
 
 jobs:
   use-template:
