@@ -7,6 +7,7 @@ on:
       - bug/*
       
 permissions: write-all
+
 jobs:
   use-template:
     uses: openkcm/pipeline-template/.github/workflows/test.yaml@main
