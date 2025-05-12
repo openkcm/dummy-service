@@ -11,4 +11,5 @@ func main() {
 	fmt.Println("Add next Release!")
 	fmt.Println("Release 2.0")
 	fmt.Println("Release 2.2")
+	fmt.Println("Release 2.3")
 }
