@@ -12,4 +12,5 @@ func main() {
 	fmt.Println("Release 2.0")
 	fmt.Println("Release 2.2")
 	fmt.Println("Release 2.3.2")
+	fmt.Println("Release 2.4.0")
 }
