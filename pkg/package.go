@@ -5,5 +5,5 @@ import "fmt"
 
 // Hello prints a greeting message from the pkg module.
 func Hello() {
-    fmt.Println("Hello from the pkg module!")
+	fmt.Println("Hello from the pkg module!")
 }
