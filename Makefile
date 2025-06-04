@@ -1,4 +1,4 @@
-NAME := checker
+NAME := dummy-service
 
 IMGTAG ?= latest
 IMG ?= localhost/$(NAME):${IMGTAG}

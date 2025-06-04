@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "checker.name" -}}
+{{- define "dummy-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "checker.fullname" -}}
+{{- define "dummy-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -31,23 +31,23 @@ By default this is not set so the helm release namespace will be used
 This gets around an problem within helm discussed here
 https://github.com/helm/helm/issues/5358
 */}}
-{{- define "checker.namespace" -}}
+{{- define "dummy-service.namespace" -}}
     {{ .Values.namespace | default .Release.Namespace }}
 {{- end -}}
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "checker.chart" -}}
+{{- define "dummy-service.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "checker.labels" -}}
-helm.sh/chart: {{ include "checker.chart" . }}
-{{ include "checker.selectorLabels" . }}
+{{- define "dummy-service.labels" -}}
+helm.sh/chart: {{ include "dummy-service.chart" . }}
+{{ include "dummy-service.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -57,8 +57,8 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "checker.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "checker.name" . }}
+{{- define "dummy-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "dummy-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/component: {{ .Chart.Name }}
 {{- end }}
@@ -66,9 +66,9 @@ app.kubernetes.io/component: {{ .Chart.Name }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "checker.serviceAccountName" -}}
+{{- define "dummy-service.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "checker.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "dummy-service.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -77,7 +77,7 @@ Create the name of the service account to use
 {{/*
 Util function for generating the image URL based on the provided options.
 */}}
-{{- define "checker.image" -}}
+{{- define "dummy-service.image" -}}
 {{- $defaultTag := index . 1 -}}
 {{- with index . 0 -}}
 {{- if .registry -}}{{ printf "%s/%s" .registry .repository }}{{- else -}}{{- .repository -}}{{- end -}}

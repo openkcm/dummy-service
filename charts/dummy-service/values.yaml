@@ -1,4 +1,4 @@
-# Default values for checker.
+# Default values for dummy-service.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -32,7 +32,7 @@ image:
 
   # The container image
   # +docs:property
-  repository: checker
+  repository: dummy-service
 
   # Override the image tag to deploy by setting this variable.
   # If no value is set, the chart's appVersion is used.
@@ -52,7 +52,7 @@ image:
     - --graceful-shutdown=5
     - --graceful-shutdown-message="Graceful shutdown in %d seconds"
 
-  command: "./checker"
+  command: "./dummy-service"
 
 
 # This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/

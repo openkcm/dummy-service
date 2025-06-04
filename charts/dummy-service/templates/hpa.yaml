@@ -3,15 +3,15 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "checker.fullname" . }}
-  namespace: {{ include "checker.namespace" . }}
+  name: {{ include "dummy-service.fullname" . }}
+  namespace: {{ include "dummy-service.namespace" . }}
   labels:
-    {{- include "checker.labels" . | nindent 4 }}
+    {{- include "dummy-service.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "checker.fullname" . }}
+    name: {{ include "dummy-service.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
