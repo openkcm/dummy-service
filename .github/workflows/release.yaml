@@ -177,5 +177,4 @@ jobs:
           labels: |
             next-dev-version
             automated pr
-          milestone: 1
           draft: false
