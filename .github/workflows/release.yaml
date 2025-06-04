@@ -6,8 +6,9 @@ on:
       - main
 
 permissions:
-  contents: write # we need this to be able to push tags
   actions: write
+  contents: write
+  pull-requests: write
 
 jobs:
   release_tag:
@@ -147,12 +148,35 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push dev VERSION
+      - name: Create new next version as dev branch
         if: ${{ env.SKIP != 'true' }}
         run: |
           task release:set-version --verbose -- "${{ env.next_version }}-dev"
           git config user.name "${{ env.AUTHOR_NAME }}"
           git config user.email "${{ env.AUTHOR_EMAIL }}"
           git add VERSION
+          git checkout -b dev/${{ env.next_version }}
           git commit -m "Update VERSION to ${{ env.next_version }}-dev"
-          git push origin main
+          git push -u origin dev/${{ env.next_version }}
+
+      - name: Create Pull Request
+        if: ${{ env.SKIP != 'true' }}
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: Update report
+          committer: ${{ env.AUTHOR_NAME }}
+          author: ${{ env.AUTHOR_EMAIL }}
+          signoff: false
+          branch: dev/${{ env.next_version }}
+          delete-branch: true
+          title: 'dev: next dev version ${{ env.next_version }}'
+          body: |
+            Update to the next dev version
+          labels: |
+            report
+            automated pr
+          milestone: 1
+          draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
