@@ -151,7 +151,7 @@ jobs:
       - name: Update to the next version
         if: ${{ env.SKIP != 'true' }}
         run: |
-          task release:set-version --verbose -- "${{ env.next_version }}-dev"
+          task release:update-repo-version --verbose -- "${{ env.next_version }}-dev"
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
@@ -159,14 +159,14 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ steps.generate-token.outputs.token }}
-          commit-message: "chore: update to ${{ env.next_version }} version"
+          commit-message: "chore: update to ${{ env.next_version }}-dev version"
           committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
-          signoff: false
+          signoff: true
           base: main
           branch: dev/${{ env.next_version }}
-          delete-branch: false
-          title: "chore: update to ${{ env.next_version }} version"
+          delete-branch: true
+          title: "chore: update to ${{ env.next_version }}-dev version"
           body: "This PR was created automatically by GitHub Actions."
           labels: |
             next-dev-version
