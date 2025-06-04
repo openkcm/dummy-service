@@ -159,22 +159,22 @@ jobs:
           git commit -a -m "Update version to ${{ env.next_version }}-dev"
           git push -u origin dev/${{ env.next_version }}
 
-#      - name: Create pr for next version
-#        if: ${{ env.SKIP != 'true' }}
-#        id: cpr
-#        uses: peter-evans/create-pull-request@v7
-#        with:
-#          token: ${{ steps.generate-token.outputs.token }}
-#          commit-message: "chore: update to ${{ env.next_version }} version"
-#          committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
-#          author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
-#          signoff: false
-#          base: main
-#          branch: dev/${{ env.next_version }}
-#          delete-branch: false
-#          title: "chore: update to ${{ env.next_version }} version"
-#          body: "This PR was created automatically by GitHub Actions."
-#          labels: |
-#            next-dev-version
-#            automated pr
-#          draft: false
+      - name: Create pr for next version
+        if: ${{ env.SKIP != 'true' }}
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+          commit-message: "chore: update to ${{ env.next_version }} version"
+          committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
+          author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
+          signoff: false
+          base: main
+          branch: dev/${{ env.next_version }}
+          delete-branch: false
+          title: "chore: update to ${{ env.next_version }} version"
+          body: "This PR was created automatically by GitHub Actions."
+          labels: |
+            next-dev-version
+            automated pr
+          draft: false
