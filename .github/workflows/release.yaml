@@ -155,7 +155,8 @@ jobs:
           git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git checkout -b dev/${{ env.next_version }}
           task release:set-version --verbose -- "${{ env.next_version }}-dev"
-          git commit -a -m "Update version to ${{ env.next_version }}-dev"
+          git add .
+          git commit -m "Update version to ${{ env.next_version }}-dev"
           git push -u origin dev/${{ env.next_version }}
 
       - name: Create pr for next version
@@ -168,9 +169,9 @@ jobs:
           committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
           signoff: false
-          base: main
           branch: dev/${{ env.next_version }}
-          delete-branch: true
+          base: main
+          delete-branch: false
           title: "chore: update to ${{ env.next_version }} version"
           body: "This PR was created automatically by GitHub Actions."
           labels: |
