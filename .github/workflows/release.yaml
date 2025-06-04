@@ -165,14 +165,14 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ steps.generate-token.outputs.token }}
-          commit-message: "chore: update version file"
+          commit-message: "chore: update version values"
           committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
           signoff: false
           base: main
           branch: dev/${{ env.next_version }}
           delete-branch: true
-          title: "Auto PR: Update version"
+          title: "chore: update version"
           body: "This PR was created automatically by GitHub Actions."
           labels: |
             next-dev-version
