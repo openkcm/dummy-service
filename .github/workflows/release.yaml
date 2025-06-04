@@ -168,6 +168,7 @@ jobs:
           committer: ${{ env.AUTHOR_NAME }}
           author: ${{ env.AUTHOR_EMAIL }}
           signoff: false
+          base: main
           branch: dev/${{ env.next_version }}
           delete-branch: true
           title: 'dev: next dev version ${{ env.next_version }}'
