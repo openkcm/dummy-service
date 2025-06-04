@@ -155,7 +155,6 @@ jobs:
           git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git checkout -b dev/${{ env.next_version }}
           task release:set-version --verbose -- "${{ env.next_version }}-dev"
-          git add VERSION
           git commit -m "Update VERSION to ${{ env.next_version }}-dev"
           git push -u origin dev/${{ env.next_version }}
 
@@ -172,7 +171,7 @@ jobs:
           base: main
           branch: dev/${{ env.next_version }}
           delete-branch: true
-          title: "chore: update version"
+          title: "chore: update to ${{ env.next_version }} version"
           body: "This PR was created automatically by GitHub Actions."
           labels: |
             next-dev-version
