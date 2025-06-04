@@ -155,10 +155,10 @@ jobs:
           git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git checkout -b dev/${{ env.next_version }}
           task release:set-version --verbose -- "${{ env.next_version }}-dev"
-          git commit -m "Update VERSION to ${{ env.next_version }}-dev"
+          git commit -a -m "Update version to ${{ env.next_version }}-dev"
           git push -u origin dev/${{ env.next_version }}
 
-      - name: Create Pull Request
+      - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
         id: cpr
         uses: peter-evans/create-pull-request@v7
