@@ -1,4 +1,0 @@
-[submodule "hack/common"]
-	path = hack/common
-	url = https://github.com/openkcm/build.git
-	branch = feature/verify-chart-version-exist
