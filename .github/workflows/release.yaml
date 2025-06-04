@@ -164,7 +164,8 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: "chore: update config files"
+          token: ${{ steps.generate-token.outputs.token }}
+          commit-message: "chore: update version file"
           committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
           signoff: false
@@ -178,5 +179,3 @@ jobs:
             automated pr
           milestone: 1
           draft: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
