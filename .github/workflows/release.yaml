@@ -148,16 +148,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create new next version as dev branch
+      - name: Update to the next version
         if: ${{ env.SKIP != 'true' }}
         run: |
-          git checkout -b dev/${{ env.next_version }}
           task release:set-version --verbose -- "${{ env.next_version }}-dev"
-          git config --global user.name "${{ env.AUTHOR_NAME }}"
-          git config --global user.email "${{ env.AUTHOR_EMAIL }}"
-          git add .
-          git commit -a -m "Update version to ${{ env.next_version }}-dev"
-          git push -u origin dev/${{ env.next_version }}
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
