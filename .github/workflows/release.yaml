@@ -169,8 +169,8 @@ jobs:
           committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
           signoff: false
-          branch: main
-          base: dev/${{ env.next_version }}
+          branch: dev/${{ env.next_version }}
+          base: main
           delete-branch: false
           title: "chore: update to ${{ env.next_version }} version"
           body: "This PR was created automatically by GitHub Actions."
