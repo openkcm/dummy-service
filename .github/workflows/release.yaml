@@ -151,11 +151,11 @@ jobs:
       - name: Create new next version as dev branch
         if: ${{ env.SKIP != 'true' }}
         run: |
-          task release:set-version --verbose -- "${{ env.next_version }}-dev"
-          git config user.name "${{ env.AUTHOR_NAME }}"
-          git config user.email "${{ env.AUTHOR_EMAIL }}"
-          git add VERSION
+          git config --global user.name "${{ env.AUTHOR_NAME }}"
+          git config --global user.email "${{ env.AUTHOR_EMAIL }}"
           git checkout -b dev/${{ env.next_version }}
+          task release:set-version --verbose -- "${{ env.next_version }}-dev"
+          git add VERSION
           git commit -m "Update VERSION to ${{ env.next_version }}-dev"
           git push -u origin dev/${{ env.next_version }}
 
