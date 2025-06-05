@@ -37,7 +37,7 @@ image:
   # Override the image tag to deploy by setting this variable.
   # If no value is set, the chart's appVersion is used.
   # +docs:property
-  #tag: v0.0.50-dev
+  tag: v0.0.53
 
   # Setting a digest will override any tag.
   # +docs:property
