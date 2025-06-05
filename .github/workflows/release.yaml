@@ -140,18 +140,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create GitHub release
-        if: ${{ env.SKIP != 'true' }}
-        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
-        with:
-          tag_name: ${{ env.version }}
-          name: Release ${{ env.version }}
-          body: ${{steps.github_release.outputs.changelog}}
-          draft: true
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Update to the next version
         if: ${{ env.SKIP != 'true' }}
         run: |
@@ -161,19 +149,25 @@ jobs:
 #          task release:update-charts-appVersion --verbose -- "${{ env.next_version }}"
 #          task release:update-charts-values-image-tag --verbose -- "${{ env.next_version }}"
 
-      - name: List SBOM generated files
+      - name: Create GitHub release
         if: ${{ env.SKIP != 'true' }}
-        run: ls -la *-app.bom.json
-
-      - name: Upload SBOM to GitHub Release
-        if: ${{ env.SKIP != 'true' }}
-        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 #v2.2.2
+        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
         with:
+          tag_name: ${{ env.version }}
+          name: Release ${{ env.version }}
+          body: ${{steps.github_release.outputs.changelog}}
           files: "*-app.bom.json"
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clean up SBOM files
         if: ${{ env.SKIP != 'true' }}
-        run: rm -f *-app.bom.json
+        run: |
+          echo "Removing the following SBOM files:"
+          ls -1 *-app.bom.json || echo "No files found"
+          rm -f *-app.bom.json
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
