@@ -154,9 +154,20 @@ jobs:
         if: ${{ env.SKIP != 'true' }}
         run: |
           task release:update-repo-version --verbose -- "${{ env.next_version }}-dev"
+          task cyclonedxgomod:app
 #          task release:update-charts-version --verbose -- "${{ env.nacked_next_version }}"
 #          task release:update-charts-appVersion --verbose -- "${{ env.next_version }}"
 #          task release:update-charts-values-image-tag --verbose -- "${{ env.next_version }}"
+
+      - name: List SBOM generated files
+        run: ls -la *-app.bom.json
+
+      - name: Upload SBOM artifact
+        if: ${{ env.SKIP != 'true' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sbom
+          path: "*-app.bom.json"
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
