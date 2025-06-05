@@ -1,0 +1,132 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:55278fc0-191c-42da-b119-71d6b4e0e1cb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-06-05T15:06:56Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-gomod",
+        "version": "v1.9.0",
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "d2d88c410064af6347baec497b042a40"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "3f60e9ad5d020c3dbb081bb65ff3f00896d4d8d7"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "f175d050a18fb1169bbdb0ba3129c2afd601f87dc21043f8a9b389612cf9227f"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "0a65c8414860b9b8c0515ccb407abbc58f47526776859828d451de573347c908a575107a9c059cef853ef294e0e4418f"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "f3e6b270267a15874f6556d446eacdb63f5c4f358da791b8a42271b0ae80dc307f6b3fe92824d575965080f438c86a869bd98eca80f12d84427a70c69c6694a0"
+          }
+        ],
+        "externalReferences": [
+          {
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod",
+            "type": "vcs"
+          },
+          {
+            "url": "https://cyclonedx.org",
+            "type": "website"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "pkg:golang/github.com/openkcm/dummy-service@v0.0.70?type=module#cmd/dummy-service",
+      "type": "application",
+      "name": "github.com/openkcm/dummy-service",
+      "version": "v0.0.70",
+      "purl": "pkg:golang/github.com/openkcm/dummy-service@v0.0.70?type=module\u0026goos=linux\u0026goarch=amd64#cmd/dummy-service",
+      "externalReferences": [
+        {
+          "url": "https://github.com/openkcm/dummy-service",
+          "type": "vcs"
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:gomod:build:env:CGO_ENABLED",
+          "value": "1"
+        },
+        {
+          "name": "cdx:gomod:build:env:GOARCH",
+          "value": "amd64"
+        },
+        {
+          "name": "cdx:gomod:build:env:GOOS",
+          "value": "linux"
+        },
+        {
+          "name": "cdx:gomod:build:env:GOVERSION",
+          "value": "go1.24.2"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "github.com/openkcm/dummy-service/cmd/dummy-service",
+          "version": "v0.0.70",
+          "purl": "pkg:golang/github.com/openkcm/dummy-service/cmd/dummy-service@v0.0.70?type=package",
+          "components": [
+            {
+              "type": "file",
+              "name": "main.go",
+              "version": "v0.0.0-fd33f3a1fe34",
+              "scope": "required",
+              "hashes": [
+                {
+                  "alg": "MD5",
+                  "content": "b415ae08df7d43e240e85e4fa94fed3e"
+                },
+                {
+                  "alg": "SHA-1",
+                  "content": "fd33f3a1fe34846c9ede0f47f81b2dc21d80786a"
+                },
+                {
+                  "alg": "SHA-256",
+                  "content": "17b852e43e77f2f631ba89b61358f4f390787050fa928a265b850f3336885713"
+                },
+                {
+                  "alg": "SHA-384",
+                  "content": "69f4b383bcb0c1556392038b5fd7ad55ba5089869f07633d45338c2fcdcb8f2902ead1f44c654f36f88998084354bdd9"
+                },
+                {
+                  "alg": "SHA-512",
+                  "content": "bdf1f24ea144b9350945752d117f47f1cbb162bca95631bea4bea565a110201ff3a24d4910140823662ac87bd76ec819dd319990b777324321183ce82447c3c3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "licenses": [
+          {
+            "license": {
+              "id": "Apache-2.0"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "dependencies": [
+    {
+      "ref": "pkg:golang/github.com/openkcm/dummy-service@v0.0.70?type=module#cmd/dummy-service"
+    }
+  ]
+}
