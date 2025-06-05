@@ -155,8 +155,8 @@ jobs:
         run: |
           task release:update-repo-version --verbose -- "${{ env.next_version }}-dev"
           task release:update-charts-version --verbose -- "${{ env.nacked_next_version }}"
-          task release:update-charts-appVersion --verbose -- "${{ env.nacked_next_version }}"
-          task release:update-charts-values-image-tag --verbose -- "${{ env.nacked_next_version }}"
+          task release:update-charts-appVersion --verbose -- "${{ env.next_version }}"
+          task release:update-charts-values-image-tag --verbose -- "${{ env.next_version }}"
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
