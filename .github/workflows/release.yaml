@@ -151,7 +151,7 @@ jobs:
 
       - name: Generate SBOM
         run: |
-          task cyclonedxgomod:mod-application --verbose
+          task cyclonedxgomod:app --verbose
 
       - name: Create GitHub release
         if: ${{ env.SKIP != 'true' }}
