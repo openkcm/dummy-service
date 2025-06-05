@@ -149,7 +149,6 @@ jobs:
 #          task release:update-charts-values-image-tag --verbose -- "${{ env.next_version }}"
 
       - name: Generate SBOM
-        if: ${{ env.SKIP != 'true' }}
         run: |
           task cyclonedxgomod:app --verbose
 
@@ -167,7 +166,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clean up SBOM files
-        if: ${{ env.SKIP != 'true' }}
         run: |
           echo "Removing the following SBOM files:"
           ls -1 *-app.sbom.json || echo "No files found"
