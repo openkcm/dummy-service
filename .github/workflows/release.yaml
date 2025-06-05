@@ -160,6 +160,7 @@ jobs:
 #          task release:update-charts-values-image-tag --verbose -- "${{ env.next_version }}"
 
       - name: List SBOM generated files
+        if: ${{ env.SKIP != 'true' }}
         run: ls -la *-app.bom.json
 
       - name: Upload SBOM artifact
