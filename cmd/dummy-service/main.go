@@ -9,6 +9,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/mcuadros/go-defaults"
 	"github.com/openkcm/common-sdk/pkg/commoncfg"
 	"github.com/openkcm/common-sdk/pkg/health"
 	"github.com/openkcm/common-sdk/pkg/logger"
@@ -21,8 +22,6 @@ import (
 	root "github.com/openkcm/dummy-service"
 	"github.com/openkcm/dummy-service/internal/business"
 	"github.com/openkcm/dummy-service/internal/config"
-
-	"github.com/mcuadros/go-defaults"
 )
 
 var versionFlag = flag.Bool("version", false, "print version information")

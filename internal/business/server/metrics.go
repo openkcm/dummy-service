@@ -4,10 +4,11 @@ import (
 	"context"
 
 	"github.com/openkcm/common-sdk/pkg/otlp"
-	"github.com/openkcm/dummy-service/internal/config"
 	"github.com/samber/oops"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/metric"
+
+	"github.com/openkcm/dummy-service/internal/config"
 )
 
 var (

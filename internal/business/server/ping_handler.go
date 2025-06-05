@@ -8,13 +8,15 @@ import (
 	"github.com/google/uuid"
 	"github.com/openkcm/common-sdk/pkg/commoncfg"
 	"github.com/openkcm/common-sdk/pkg/otlp"
-	"github.com/openkcm/dummy-service/internal/config"
-	slogctx "github.com/veqryn/slog-context"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"
+
+	slogctx "github.com/veqryn/slog-context"
+
+	"github.com/openkcm/dummy-service/internal/config"
 )
 
 func pingHandlerFunc(cfg *config.Config) func(http.ResponseWriter, *http.Request) {

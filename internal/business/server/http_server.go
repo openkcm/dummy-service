@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/samber/oops"
+
 	slogctx "github.com/veqryn/slog-context"
 
 	"github.com/openkcm/dummy-service/internal/config"
