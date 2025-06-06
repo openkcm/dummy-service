@@ -44,12 +44,12 @@ jobs:
 
       - name: Generate SBOM
         run: |
-          task cyclonedxgomod:mod-application --verbose
+          task cyclonedxgomod:app --verbose
 
 
       - name: Clean up SBOM files
         run: |
           echo "Removing the following SBOM files:"
-          rm -f *sbom.json
+          rm -f *.sbom.json
           rm -rf bin/
 
