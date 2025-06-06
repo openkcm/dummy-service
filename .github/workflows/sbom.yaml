@@ -65,7 +65,5 @@ jobs:
 
       - name: Clean up SBOM files
         run: |
-          cat dummy-service-sbom.json
           rm -f *sbom.json
-          rm -rf bin/
 
