@@ -190,6 +190,7 @@ jobs:
         if: ${{ env.SKIP != 'true' }}
         run: |
           rm -f *sbom.json
+          rm -rf hack
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
