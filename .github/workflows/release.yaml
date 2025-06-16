@@ -45,7 +45,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          token: ${{ steps.generate-token.outputs.token }}
           fetch-tags: true
           fetch-depth: 0
           submodules: recursive
@@ -75,7 +74,6 @@ jobs:
           echo "release_label_set=$release_label_set"
 
       - name: Determine Next Version
-        id: set-version
         run: |
           if [[ "${{ env.release_label_set }}" == "true" ]]; then
             latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
@@ -89,16 +87,21 @@ jobs:
             echo "Current version: $major.$minor.$patch"
 
             if [[ $GITHUB_EVENT_NAME == "pull_request" ]]; then
-              if jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "major"; then
-                major=$((major + 1))
-                minor=0
-                patch=0
-              elif jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "minor"; then
-                minor=$((minor + 1))
-                patch=0
-              else
-                patch=$((patch + 1))
+              
+              if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
+                labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
+                if echo "$labels" | grep -q "major"; then
+                  major=$((major + 1))
+                  minor=0
+                  patch=0
+                elif echo "$labels" | grep -q "minor"; then
+                  minor=$((minor + 1))
+                  patch=0
+                else
+                  patch=$((patch + 1))
+                fi
               fi
+              
             fi
 
             next_version="v$major.$minor.$patch"
@@ -144,8 +147,6 @@ jobs:
         uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
         with:
           version: 3.x
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Git tag
         if: ${{ env.SKIP != 'true' }}
@@ -162,8 +163,6 @@ jobs:
           
           git tag -a "${{ env.version }}" -m "Release ${{ env.version }}"
           git push origin "${{ env.version }}"
-        env:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Build Changelog
         if: ${{ env.SKIP != 'true' }}
@@ -197,8 +196,6 @@ jobs:
                 }
               ]
             }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 #      - name: Update to the next version
 #        if: ${{ env.SKIP != 'true' }}
@@ -223,10 +220,3 @@ jobs:
           files: "*sbom.json"
           draft: true
           prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Remove VERSION file
-        if: ${{ env.SKIP != 'true' }}
-        run: |
-          rm -f VERSION
