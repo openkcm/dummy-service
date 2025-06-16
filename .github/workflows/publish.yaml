@@ -41,7 +41,7 @@ jobs:
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
 
       - name: Fetch Tags
-        run: git fetch --tags
+        run: git fetch --tags --force
 
       - name: Determine Next Version
         id: set-version
