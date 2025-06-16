@@ -47,36 +47,7 @@ jobs:
         id: set-version
         run: |
           latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
-          echo "Latest tag: $latest_tag"
-
-          # Extract version components
-          major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
-          minor=$(echo $latest_tag | cut -d. -f2)
-          patch=$(echo $latest_tag | cut -d. -f3)
-
-          echo "Current version: $major.$minor.$patch"
-
-          if [[ $GITHUB_EVENT_NAME == "pull_request" ]]; then
-            if jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "major"; then
-              major=$((major + 1))
-              minor=0
-              patch=0
-            elif jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "minor"; then
-              minor=$((minor + 1))
-              patch=0
-            else
-              patch=$((patch + 1))
-            fi
-          fi
-
-          next_version="v$major.$minor.$patch"
-          nacked_next_version="$major.$minor.$patch"
-        
-          echo "Next version: $next_version"
-
-          echo "next_version=$next_version" >> $GITHUB_ENV
-          echo "version=$next_version" >> $GITHUB_ENV
-          echo "$next_version" > VERSION
+          echo "$latest_tag" > VERSION
 
       - name: Generate Build Version
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
