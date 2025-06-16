@@ -219,7 +219,9 @@ jobs:
       - name: Push to new branch
         run: |
           git checkout -b "feature/${{ env.next_version }}"
+          git status
           git add .
+          git status
           git commit -S -m "chore: update to ${{ env.next_version }}-dev version"
           git push origin "feature/${{ env.next_version }}"
 
