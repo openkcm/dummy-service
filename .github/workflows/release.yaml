@@ -1,12 +1,8 @@
 name: Versioned Release
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types: [ labeled ]
-
 
 #jobs:
 #  use-template:
@@ -230,3 +226,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Remove VERSION file
+        if: ${{ env.SKIP != 'true' }}
+        run: |
+          rm -f VERSION
