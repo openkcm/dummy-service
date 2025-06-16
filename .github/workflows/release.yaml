@@ -75,15 +75,17 @@ jobs:
           release_label_set=false
           
            # Only check labels if the event is a pull request
-           if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
-             labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
-             if echo "$labels" | grep -q "release"; then
-               release_label_set=true
-             fi
-           fi
+          echo "$GITHUB_EVENT_PATH"
+          cat "$GITHUB_EVENT_PATH"
+          if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
+            labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
+            if echo "$labels" | grep -q "release"; then
+              release_label_set=true
+            fi
+          fi
           
-           echo "release_label_set=$release_label_set" >> $GITHUB_ENV
-           echo "release_label_set=$release_label_set"
+          echo "release_label_set=$release_label_set" >> $GITHUB_ENV
+          echo "release_label_set=$release_label_set"
 
       - name: Determine Next Version
         id: set-version
