@@ -101,7 +101,3 @@ jobs:
       - name: Build and Push OCM Component
         run: |
           task build:ocm:all --verbose
-
-      - name: Remove VERSION file
-        run: |
-          rm -f VERSION

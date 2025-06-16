@@ -64,6 +64,3 @@ jobs:
       - name: task test
         run: task test --verbose
 
-      - name: Remove VERSION file
-        run: |
-          rm -f VERSION
