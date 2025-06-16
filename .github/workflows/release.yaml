@@ -234,6 +234,7 @@ jobs:
         with:
           token: ${{ steps.generate-token.outputs.token }}
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
+          base: main
           branch: dev/${{ env.next_version }}
           delete-branch: true
           title: "chore: update to ${{ env.next_version }}-dev version"
