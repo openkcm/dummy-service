@@ -63,31 +63,6 @@ jobs:
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
 
-      - name: Generate Build Version
-        uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
-        id: execute
-        with:
-          repositoryOwner: ${{ github.repository_owner }}
-          repository: ${{ github.repository }}
-          version: cat VERSION
-          product: ${{ env.repo_name }}
-          metadataFileName: ${{ github.workspace }}/build_version.json
-
-      - name: Print Build Version
-        shell: bash
-        run: cat ${{ github.workspace }}/build_version.json
-
-      - name: Checkout build (taskfiles) repo
-        run: |
-          git clone https://github.com/openkcm/build.git ./hack/common
-
-      - name: Install Task
-        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
-        with:
-          version: 3.x
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Fetch Tags
         run: git fetch --tags
 
@@ -129,29 +104,45 @@ jobs:
 
             next_version="v$major.$minor.$patch"
             nacked_next_version="$major.$minor.$patch"
-          
+
             echo "Next version: $next_version"
 
             echo "next_version=$next_version" >> $GITHUB_ENV
             echo "version=$next_version" >> $GITHUB_ENV
             echo "nacked_next_version=$nacked_next_version" >> $GITHUB_ENV
             echo "$next_version" > VERSION
-          
-            echo "SKIP=false" >> $GITHUB_ENV
-          else
-            echo "SKIP=true" >> $GITHUB_ENV
-            exit 0
+
+            if git rev-parse "refs/tags/$version" >/dev/null 2>&1; then
+              echo "Tag $version already exists. Skipping release."
+              echo "SKIP=true" >> $GITHUB_ENV
+              exit 0
+            fi
           fi
 
-      - name: Check if VERSION is already tagged
-        id: check_tag
+      - name: Generate Build Version
+        uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
+        id: execute
+        with:
+          repositoryOwner: ${{ github.repository_owner }}
+          repository: ${{ github.repository }}
+          version: cat VERSION
+          product: ${{ env.repo_name }}
+          metadataFileName: ${{ github.workspace }}/build_version.json
+
+      - name: Print Build Version
+        shell: bash
+        run: cat ${{ github.workspace }}/build_version.json
+
+      - name: Checkout build (taskfiles) repo
         run: |
-          if git rev-parse "refs/tags/${{ env.version }}" >/dev/null 2>&1; then
-            echo "Tag ${{ env.version }} already exists. Skipping release."
-            echo "SKIP=true" >> $GITHUB_ENV
-            exit 0
-          fi
-          echo "Tag ${{ env.version }} doesn't exists. Proceeding with release."
+          git clone https://github.com/openkcm/build.git ./hack/common
+
+      - name: Install Task
+        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
+        with:
+          version: 3.x
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Git tag
         if: ${{ env.SKIP != 'true' }}
