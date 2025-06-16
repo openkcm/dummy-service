@@ -216,16 +216,13 @@ jobs:
           rm -f *sbom.json
           rm -rf hack
 
-      - name: Make Signed Commit
-        run: |
-          echo "Timestamp: $(date)" >> sbom-signature.log
-          git add sbom-signature.log
-          git commit -S -m "chore: update to ${{ env.next_version }}-dev version"
-
       - name: Push to new branch
         run: |
-          git checkout -b "dev/${{ env.next_version }}"
-          git push origin "dev/${{ env.next_version }}"
+          git checkout -b "feature/${{ env.next_version }}"
+          echo "Timestamp: $(date)" >> sbom-signature.log
+          git add .
+          git commit -S -m "chore: update to ${{ env.next_version }}-dev version"
+          git push origin "feature/${{ env.next_version }}"
 
       - name: Create pr for next version
         if: ${{ env.SKIP != 'true' }}
@@ -235,7 +232,7 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
           base: main
-          branch: dev/${{ env.next_version }}
+          branch: "feature/${{ env.next_version }}"
           delete-branch: true
           title: "chore: update to ${{ env.next_version }}-dev version"
           body: "This PR was created automatically by GitHub Actions."
