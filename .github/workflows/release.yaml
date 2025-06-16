@@ -219,7 +219,6 @@ jobs:
       - name: Push to new branch
         run: |
           git checkout -b "feature/${{ env.next_version }}"
-          echo "Timestamp: $(date)" >> sbom-signature.log
           git add .
           git commit -S -m "chore: update to ${{ env.next_version }}-dev version"
           git push origin "feature/${{ env.next_version }}"
@@ -233,7 +232,6 @@ jobs:
           author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
           base: main
           branch: "feature/${{ env.next_version }}"
-          delete-branch: true
           title: "chore: update to ${{ env.next_version }}-dev version"
           body: "This PR was created automatically by GitHub Actions."
           labels: |
