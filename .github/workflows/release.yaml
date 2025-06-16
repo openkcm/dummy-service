@@ -12,6 +12,13 @@ permissions:
   contents: write
   pull-requests: write
 
+#jobs:
+#  use-template:
+#    uses: openkcm/pipeline-template/.github/workflows/release.yaml@main
+#    with:
+#      go-version: '1.24'
+#      app-name: 'dummy-service'
+
 jobs:
   release_tag:
     name: Release version
@@ -81,23 +88,60 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Read and validate VERSION
-        id: version
-        run: |
-          VERSION=$(task version)
-          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-dev(-[0-9a-f]*)?)?$ ]]; then
-            echo "Invalid version format: $VERSION"
-            exit 1
-          fi
-          echo "New version: $VERSION"
-          echo "version=$VERSION" >> $GITHUB_ENV
+      - name: Fetch Tags
+        run: git fetch --tags
 
-      - name: Skip release if version is a dev version
-        if: contains(env.version, '-dev')
+      - name: Check if Release Label is Set
+        id: check_label
         run: |
-          echo "Skipping development version release: ${{ env.version }}"
-          echo "SKIP=true" >> $GITHUB_ENV
-          exit 0
+          release_label_set=false
+          if jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "release"; then
+            release_label_set=true
+          fi
+          echo "::set-output name=release_label_set::$release_label_set"
+
+      - name: Determine Next Version
+        id: set-version
+        run: |
+          if [[ "${{ steps.check_label.outputs.release_label_set }}" == "true" ]]; then
+            latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+            echo "Latest tag: $latest_tag"
+
+            # Extract version components
+            major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
+            minor=$(echo $latest_tag | cut -d. -f2)
+            patch=$(echo $latest_tag | cut -d. -f3)
+
+            echo "Current version: $major.$minor.$patch"
+
+            if [[ $GITHUB_EVENT_NAME == "pull_request" ]]; then
+              if jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "major"; then
+                major=$((major + 1))
+                minor=0
+                patch=0
+              elif jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "minor"; then
+                minor=$((minor + 1))
+                patch=0
+              else
+                patch=$((patch + 1))
+              fi
+            fi
+
+            next_version="v$major.$minor.$patch"
+            nacked_next_version="$major.$minor.$patch"
+          
+            echo "Next version: $next_version"
+
+            echo "next_version=$next_version" >> $GITHUB_ENV
+            echo "version=$next_version" >> $GITHUB_ENV
+            echo "nacked_next_version=$nacked_next_version" >> $GITHUB_ENV
+            echo "$next_version" > VERSION
+          
+            echo "SKIP=false" >> $GITHUB_ENV
+          else
+            echo "SKIP=true" >> $GITHUB_ENV
+            exit 0
+          fi
 
       - name: Check if VERSION is already tagged
         id: check_tag
@@ -108,29 +152,6 @@ jobs:
             exit 0
           fi
           echo "Tag ${{ env.version }} doesn't exists. Proceeding with release."
-
-      - name: Determine Next Version
-        id: set-next-version
-        if: ${{ env.SKIP != 'true' }}
-        run: |
-          latest_version=${{ env.version }}
-          echo "Latest tag: $latest_version"
-        
-          # Extract version components
-          major=$(echo $latest_version | cut -d. -f1 | tr -d 'v')
-          minor=$(echo $latest_version | cut -d. -f2)
-          patch=$(echo $latest_version | cut -d. -f3)
-        
-          echo "Current version: $major.$minor.$patch"
-          
-          patch=$((patch + 1))
-        
-          next_version="v$major.$minor.$patch"
-          nacked_next_version="$major.$minor.$patch"
-          echo "Next version: $next_version"
-          
-          echo "next_version=$next_version" >> $GITHUB_ENV
-          echo "nacked_next_version=$nacked_next_version" >> $GITHUB_ENV
 
       - name: Create Git tag
         if: ${{ env.SKIP != 'true' }}
@@ -210,29 +231,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Clean up SBOM files
-        if: ${{ env.SKIP != 'true' }}
-        run: |
-          rm -f *sbom.json
-          rm -rf hack
-
-      - name: Create pr for next version
-        if: ${{ env.SKIP != 'true' }}
-        id: cpr
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
-        with:
-          token: ${{ steps.generate-token.outputs.token }}
-          commit-message: "chore: update to ${{ env.next_version }}-dev version"
-          committer: "GitHub Actions <github-actions[bot]@users.noreply.github.com>"
-          author: "${{ env.AUTHOR_NAME }} <${{ env.AUTHOR_EMAIL }}>"
-          signoff: true
-          base: main
-          branch: dev/${{ env.next_version }}
-          delete-branch: true
-          sign-commits: true
-          title: "chore: update to ${{ env.next_version }}-dev version"
-          body: "This PR was created automatically by GitHub Actions."
-          labels: |
-            next-dev-version
-            automated pr
-          draft: false

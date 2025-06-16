@@ -22,6 +22,11 @@ jobs:
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
 
+      - name: Create the VERSION file
+        run: |
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          echo "$latest_tag" > VERSION
+
       - name: Generate Build Version
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
         id: execute
@@ -57,3 +62,7 @@ jobs:
 
       - name: task test
         run: task test --verbose
+
+      - name: Remove VERSION file
+        run: |
+          rm -f VERSION

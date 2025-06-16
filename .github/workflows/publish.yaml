@@ -40,6 +40,44 @@ jobs:
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
 
+      - name: Fetch Tags
+        run: git fetch --tags
+
+      - name: Determine Next Version
+        id: set-version
+        run: |
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          echo "Latest tag: $latest_tag"
+
+          # Extract version components
+          major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
+          minor=$(echo $latest_tag | cut -d. -f2)
+          patch=$(echo $latest_tag | cut -d. -f3)
+
+          echo "Current version: $major.$minor.$patch"
+
+          if [[ $GITHUB_EVENT_NAME == "pull_request" ]]; then
+            if jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "major"; then
+              major=$((major + 1))
+              minor=0
+              patch=0
+            elif jq -r '.pull_request.labels[].name' $GITHUB_EVENT_PATH | grep -q "minor"; then
+              minor=$((minor + 1))
+              patch=0
+            else
+              patch=$((patch + 1))
+            fi
+          fi
+
+          next_version="v$major.$minor.$patch"
+          nacked_next_version="$major.$minor.$patch"
+        
+          echo "Next version: $next_version"
+
+          echo "next_version=$next_version" >> $GITHUB_ENV
+          echo "version=$next_version" >> $GITHUB_ENV
+          echo "$next_version" > VERSION
+
       - name: Generate Build Version
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
         id: execute
@@ -64,24 +102,6 @@ jobs:
           version: 3.x
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Read and validate VERSION
-        id: version
-        run: |
-          VERSION=$(task version)
-          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-dev(-[0-9a-f]*)?)?$ ]]; then
-            echo "Invalid version format: $VERSION"
-            exit 1
-          fi
-          echo "New version: $VERSION"
-          echo "version=$VERSION" >> $GITHUB_ENV
-
-      - name: Skip release if version is a dev version
-        if: contains(env.version, '-dev')
-        run: |
-          echo "Skipping development version release: ${{ env.version }}"
-          echo "SKIP=true" >> $GITHUB_ENV
-          exit 0
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
@@ -120,3 +140,7 @@ jobs:
       - name: Build and Push OCM Component
         run: |
           task build:ocm:all --verbose
+
+      - name: Remove VERSION file
+        run: |
+          rm -f VERSION
