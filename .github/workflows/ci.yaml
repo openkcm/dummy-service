@@ -20,18 +20,16 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Extracting Git information
+      - name: Extracting Git Information
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
           
           git fetch --tags --force
-          
           latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
           echo "$latest_tag" > VERSION
 
       - name: Generate Build Version
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
-        id: execute
         with:
           repositoryOwner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
@@ -40,7 +38,6 @@ jobs:
           metadataFileName: ${{ github.workspace }}/build_version.json
 
       - name: Print Build Version
-        shell: bash
         run: cat ${{ github.workspace }}/build_version.json
 
       - name: Set up Go
