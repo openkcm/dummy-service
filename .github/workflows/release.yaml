@@ -70,12 +70,11 @@ jobs:
            echo "$vversion" > VERSION
         
            if git rev-parse "refs/tags/$vversion" >/dev/null 2>&1; then
-             echo "SKIP=true" >> $GITHUB_ENV
-             exit 0
+            echo "❌ Skipping release $vversion as already exist as tag."
+            exit 1
            fi
 
       - name: Generate Build Version
-        if: ${{ env.SKIP != 'true' }}
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
         id: execute
         with:
@@ -86,23 +85,19 @@ jobs:
           metadataFileName: ${{ github.workspace }}/build_version.json
 
       - name: Print Build Version
-        if: ${{ env.SKIP != 'true' }}
         shell: bash
         run: cat ${{ github.workspace }}/build_version.json
 
       - name: Checkout build (taskfiles) repo
-        if: ${{ env.SKIP != 'true' }}
         run: |
           git clone https://github.com/openkcm/build.git ./hack/common
 
       - name: Install Task
-        if: ${{ env.SKIP != 'true' }}
         uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
         with:
           version: 3.x
 
       - name: Import GPG key
-        if: ${{ env.SKIP != 'true' }}
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         run: |
@@ -119,7 +114,6 @@ jobs:
           git config --global gpg.program gpg
 
       - name: Create Git tag
-        if: ${{ env.SKIP != 'true' }}
         run: |
           git tag -a "${{ env.vversion }}" -m "Release ${{ env.vversion }}" --local-user "$(git config user.signingkey)"
           git push origin "${{ env.vversion }}"
@@ -127,7 +121,6 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Build Changelog
-        if: ${{ env.SKIP != 'true' }}
         id: github_release
         uses: mikepenz/release-changelog-builder-action@5fb6e51e44d4aea73f66549f425aa3ed5008109e # v5
         with:
@@ -160,12 +153,10 @@ jobs:
             }
 
       - name: Generate SBOM
-        if: ${{ env.SKIP != 'true' }}
         run: |
           task cyclonedxgomod:app --verbose
 
       - name: Create GitHub release
-        if: ${{ env.SKIP != 'true' }}
         uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
         with:
           tag_name: ${{ env.vversion }}
