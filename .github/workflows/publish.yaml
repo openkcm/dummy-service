@@ -104,9 +104,9 @@ jobs:
         with:
           go-version-file: go.mod
 
-      - name: Build and Push Images
+      - name: Build Images
         run: |
-          task build:img:all --verbose
+          task build:img:build-multi --verbose
 
       - name: Run trivy docker image security scanner
         uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
@@ -115,6 +115,10 @@ jobs:
           scan-type: image
           format: json
           severity: CRITICAL,HIGH,MEDIUM
+
+      - name: Push Images
+        run: |
+          task build:img:push-multi --verbose
 
       - name: Package and Push Helm Charts
         run: |
