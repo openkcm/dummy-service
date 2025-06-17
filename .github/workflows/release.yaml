@@ -12,7 +12,7 @@ permissions:
   checks: read
 
 concurrency:
-  group: ${{ github.event.pull_request.number && format('pr-{}-label', github.event.pull_request.number) || github.run_id }}
+  group: pr-${{ github.event.pull_request.number }}-label
   cancel-in-progress: true
 
 jobs:
