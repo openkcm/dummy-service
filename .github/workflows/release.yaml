@@ -1,10 +1,8 @@
 name: Versioned Release
 
 on:
-  pull_request_review:
-    types: [ submitted ]
   pull_request:
-    types: [ labeled ]
+    types: [ closed ]
     branches:
       - main
 
@@ -19,7 +17,7 @@ concurrency:
 
 jobs:
   release:
-    if: ${{ github.event.review.state == 'approved' }}
+    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
     name: Release version
     runs-on: ubuntu-24.04
     steps:
