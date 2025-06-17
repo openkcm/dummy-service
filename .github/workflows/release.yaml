@@ -1,4 +1,4 @@
-name: Release Service
+name: Release
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  release-service:
+  release-tag:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
     runs-on: ubuntu-24.04
     steps:
