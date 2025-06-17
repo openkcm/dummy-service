@@ -48,7 +48,7 @@ jobs:
           token-setup-trivy: ${{ steps.generate-token.outputs.token }}
           scan-type: repository
           format: json
-          output: trivy-iac-report.json
+          output: trivy-repository-vuln.json
           severity: CRITICAL,HIGH,MEDIUM
 
       - name: Run tfsec security scanner

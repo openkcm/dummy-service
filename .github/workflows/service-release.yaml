@@ -75,7 +75,7 @@ jobs:
           token-setup-trivy: ${{ steps.generate-token.outputs.token }}
           scan-type: repository
           format: json
-          output: trivy-iac-report.json
+          output: trivy-repository-vuln.json
           severity: CRITICAL,HIGH,MEDIUM
 
       - name: Run tfsec security scanner
@@ -169,8 +169,8 @@ jobs:
         with:
           scan-type: 'sbom'
           scan-ref: "${{ env.repo_name }}-sbom.json"
-          format: 'sarif'
-          output: 'trivy-vuln.sarif'
+          format: 'json'
+          output: 'trivy-sbom-vuln.json'
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
@@ -178,7 +178,9 @@ jobs:
           tag_name: ${{ env.vversion }}
           name: Release ${{ env.vversion }}
           body: ${{steps.github_release.outputs.changelog}}
-          files: "*sbom.json"
+          files: |
+            *sbom.json
+            *vuln.json
           draft: true
           prerelease: false
         env:
