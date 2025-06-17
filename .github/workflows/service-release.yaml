@@ -1,15 +1,20 @@
-name: Versioned Release
+name: Release Service
 
 on:
   pull_request:
     types: [ closed ]
     branches:
       - main
+    paths-ignore:
+      - 'charts/**'
+      - 'docs/**'
+      - 'LICENSES/**'
+      - '.releases/**'
+      - '.github/**'
 
 jobs:
-  release:
+  release-service:
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
-    name: Release version
     runs-on: ubuntu-24.04
     steps:
       - name: Generate token from GitHub App
