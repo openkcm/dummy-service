@@ -20,6 +20,13 @@ jobs:
     name: Release version
     runs-on: ubuntu-24.04
     steps:
+      - name: Generate token from GitHub App
+        id: generate-token
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
+        with:
+          app_id: ${{ secrets.APP_PUSH_TAG_ID }}
+          private_key: ${{ secrets.APP_PUSH_TAG_PRIVATE_KEY }}
+
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -35,10 +42,10 @@ jobs:
           latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
           echo "$latest_tag" > VERSION
 
-      - name: Run tfsec security scanner
-        uses: aquasecurity/tfsec-action@b466648d6e39e7c75324f25d83891162a721f2d6 #v1.0.3
+      - name: Run trivy security scanner
+        uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Generate Build Version
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
