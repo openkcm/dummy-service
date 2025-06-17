@@ -8,6 +8,9 @@ on:
     types: [ completed ]
 #  pull_request:
 #    types: [ labeled ]
+  pull_request:
+    branches:
+      - main
 
 permissions:
   pull-requests: read
