@@ -12,7 +12,6 @@ security {
   # If you still want tfsec as a fallback:
   overrides = [
     {
-      path    = "."
       scanner = "tfsec"
       config = {
         minimum-severity = "MEDIUM"

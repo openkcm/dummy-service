@@ -5,6 +5,6 @@ release {
   tag_prefix              = "v"
   release_name_template   = "Release {{.Version}}"
   assets = [
-    "*",
+    "*"
   ]
 }
