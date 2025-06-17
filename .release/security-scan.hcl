@@ -2,7 +2,7 @@ security {
   scanner = "trivy"
 
   config = {
-    scan-type    = "iac"
+    scan-type    = "repository"
     format       = "json"
     severity     = ["MEDIUM", "HIGH", "CRITICAL"]
     exit-code    = 1
