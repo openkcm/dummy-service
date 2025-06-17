@@ -64,6 +64,9 @@ jobs:
            echo "version=$version" >> $GITHUB_ENV
            echo "$vversion" > VERSION
 
+      - name: Run tfsec security scanner
+        uses: aquasecurity/tfsec-action@b466648d6e39e7c75324f25d83891162a721f2d6 #v1.0.3
+
       - name: Generate Build Version
         uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
         with:
