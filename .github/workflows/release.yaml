@@ -1,8 +1,6 @@
 name: Versioned Release
 
 on:
-  pull_request_review:
-    types: [ submitted ]
   workflow_run:
     workflows: [ "REUSE Compliance Check", "ci" ]
     types:
