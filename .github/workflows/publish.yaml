@@ -108,6 +108,10 @@ jobs:
         run: |
           task build:img:all --verbose
 
+      - name: Package and Push Helm Charts
+        run: |
+          task build:helm:all --verbose
+
       - name: Build and Push OCM Component
         run: |
           task build:ocm:all --verbose
