@@ -21,9 +21,6 @@ jobs:
     name: Release version
     runs-on: ubuntu-24.04
     steps:
-      - name: Short delay to group multiple label events
-        run: sleep 5
-
       - name: Generate token from GitHub App
         id: generate-token
         uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
@@ -39,65 +36,48 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
-      - name: Extract repository name
-        id: repo
-        run: |
-          echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
-
-      - name: Fetch Tags
-        run: git fetch --tags
-
-      - name: Check if Release Label is Set
-        id: check_label
-        run: |
-          if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
-            labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
-            if echo "$labels" | grep -q "release"; then
-              echo "release_label_set=true" >> $GITHUB_ENV
-            fi
-          fi
-          
 
       - name: Determine Next Version
         run: |
-          if [[ "${{ env.release_label_set }}" == "true" ]]; then
-            latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
-
-            # Extract version components
-            major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
-            minor=$(echo $latest_tag | cut -d. -f2)
-            patch=$(echo $latest_tag | cut -d. -f3)
-
-            if [[ $GITHUB_EVENT_NAME == "pull_request" ]]; then
-              
-              if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
-                labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
-                if echo "$labels" | grep -q "major"; then
-                  major=$((major + 1))
-                  minor=0
-                  patch=0
-                elif echo "$labels" | grep -q "minor"; then
-                  minor=$((minor + 1))
-                  patch=0
-                else
-                  patch=$((patch + 1))
-                fi
-              fi
-              
-            fi
-
-            vversion="v$major.$minor.$patch"
-            version="$major.$minor.$patch"
-
-            echo "vversion=$vversion" >> $GITHUB_ENV
-            echo "version=$version" >> $GITHUB_ENV
-            echo "$vversion" > VERSION
-
-            if git rev-parse "refs/tags/$vversion" >/dev/null 2>&1; then
-              echo "SKIP=true" >> $GITHUB_ENV
-              exit 0
-            fi
-          fi
+          echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
+          
+          git fetch --tags
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          
+          # Extract version components
+          major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
+          minor=$(echo $latest_tag | cut -d. -f2)
+          patch=$(echo $latest_tag | cut -d. -f3)
+        
+           if [[ $GITHUB_EVENT_NAME == "pull_request" ]]; then
+        
+             if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
+               labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
+               if echo "$labels" | grep -q "major"; then
+                 major=$((major + 1))
+                 minor=0
+                 patch=0
+               elif echo "$labels" | grep -q "minor"; then
+                 minor=$((minor + 1))
+                 patch=0
+               else
+                 patch=$((patch + 1))
+               fi
+             fi
+        
+           fi
+        
+           vversion="v$major.$minor.$patch"
+           version="$major.$minor.$patch"
+        
+           echo "vversion=$vversion" >> $GITHUB_ENV
+           echo "version=$version" >> $GITHUB_ENV
+           echo "$vversion" > VERSION
+        
+           if git rev-parse "refs/tags/$vversion" >/dev/null 2>&1; then
+             echo "SKIP=true" >> $GITHUB_ENV
+             exit 0
+           fi
 
       - name: Generate Build Version
         if: ${{ env.SKIP != 'true' }}
