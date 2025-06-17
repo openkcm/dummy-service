@@ -23,6 +23,12 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
+      - name: Extracting Git Information
+        run: |
+          git fetch --tags --force
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          echo "$latest_tag" > VERSION
+
       - name: Checkout build (taskfiles) repo
         run: |
           git clone https://github.com/openkcm/build.git ./hack/common
