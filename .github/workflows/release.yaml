@@ -40,6 +40,27 @@ jobs:
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
           echo "version=$(task next-release-version)" >> $GITHUB_ENV
 
+      - name: Generate Build Version
+        uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
+        with:
+          repositoryOwner: ${{ github.repository_owner }}
+          repository: ${{ github.repository }}
+          version: ${{ env.version }}
+          product: ${{ env.repo_name }}
+          metadataFileName: ${{ github.workspace }}/build_version.json
+
+      - name: Generate SBOM
+        run: |
+          task cyclonedxgomod:app --verbose
+
+      - name: Run Trivy sbom vulnerability scanner
+        uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
+        with:
+          scan-type: 'sbom'
+          scan-ref: "${{ env.repo_name }}-sbom.json"
+          format: 'json'
+          output: 'trivy-sbom-vuln.json'
+
       - name: Run trivy repository security scanner
         uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
         with:
@@ -54,15 +75,6 @@ jobs:
         with:
           github_token: ${{ steps.generate-token.outputs.token }}
           format: json
-
-      - name: Generate Build Version
-        uses: hashicorp/actions-generate-metadata@f6f1ca9cededa05d841a58d171064faf3de8ec74 #main
-        with:
-          repositoryOwner: ${{ github.repository_owner }}
-          repository: ${{ github.repository }}
-          version: ${{ env.version }}
-          product: ${{ env.repo_name }}
-          metadataFileName: ${{ github.workspace }}/build_version.json
 
       - name: Import GPG key
         env:
@@ -111,18 +123,6 @@ jobs:
                 }
               ]
             }
-
-      - name: Generate SBOM
-        run: |
-          task cyclonedxgomod:app --verbose
-
-      - name: Run Trivy sbom vulnerability scanner
-        uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
-        with:
-          scan-type: 'sbom'
-          scan-ref: "${{ env.repo_name }}-sbom.json"
-          format: 'json'
-          output: 'trivy-sbom-vuln.json'
 
       - name: Create signed tag from main
         run: |
