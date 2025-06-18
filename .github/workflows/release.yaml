@@ -86,9 +86,6 @@ jobs:
           product: ${{ env.repo_name }}
           metadataFileName: ${{ github.workspace }}/build_version.json
 
-      - name: Print Build Version
-        run: cat ${{ github.workspace }}/build_version.json
-
       - name: Import GPG key
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -104,13 +101,6 @@ jobs:
           git config --global commit.gpgsign true
           git config --global tag.gpgSign true
           git config --global gpg.program gpg
-
-      - name: Create Git tag
-        run: |
-          git tag -a "${{ env.vversion }}" -m "Release ${{ env.vversion }}" --local-user "$(git config user.signingkey)"
-          git push origin "${{ env.vversion }}"
-        env:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Build Changelog
         id: github_release
@@ -164,6 +154,14 @@ jobs:
           scan-ref: "${{ env.repo_name }}-sbom.json"
           format: 'json'
           output: 'trivy-sbom-vuln.json'
+
+      - name: Create signed tag from main
+        run: |
+          git fetch origin main --tags
+          git tag -a "${{ env.vversion }}" origin/main -m "Release ${{ env.vversion }}" --local-user "$(git config user.signingkey)"
+          git push origin "refs/tags/${{ env.vversion }}"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2

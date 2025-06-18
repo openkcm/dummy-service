@@ -16,7 +16,7 @@ env:
   OCI_URL: ghcr.io/openkcm
 
 jobs:
-  release_tag:
+  release-next-version-tag:
     name: Release version
     runs-on: ubuntu-24.04
     steps:
