@@ -54,9 +54,6 @@ jobs:
           product: ${{ env.repo_name }}
           metadataFileName: ${{ github.workspace }}/build_version.json
 
-      - name: Print Build Version
-        run: cat ${{ github.workspace }}/build_version.json
-
       - name: task validate
         run: task validate --verbose
 

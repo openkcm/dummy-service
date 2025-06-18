@@ -26,41 +26,19 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
+      - name: Checkout build (taskfiles) repo
+        run: |
+          git clone https://github.com/openkcm/build.git ./hack/common
+
+      - name: Install Task
+        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
+        with:
+          version: 3.x
 
       - name: Determine Next Version
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
-          
-          git fetch --tags
-          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
-          
-          # Extract version components
-          major=$(echo $latest_tag | cut -d. -f1 | tr -d 'v')
-          minor=$(echo $latest_tag | cut -d. -f2)
-          patch=$(echo $latest_tag | cut -d. -f3)
-        
-          if jq -e '.pull_request != null' "$GITHUB_EVENT_PATH" > /dev/null; then
-             labels=$(jq -r '.pull_request.labels // [] | .[].name' "$GITHUB_EVENT_PATH")
-             if echo "$labels" | grep -q "major"; then
-               major=$((major + 1))
-               minor=0
-               patch=0
-             elif echo "$labels" | grep -q "minor"; then
-               minor=$((minor + 1))
-               patch=0
-             else
-               patch=$((patch + 1))
-             fi
-          else
-            echo "❌ Skipping release, as release not don through pull request!"
-            exit 1
-          fi
-        
-           vversion="v$major.$minor.$patch"
-           version="$major.$minor.$patch"
-        
-           echo "vversion=$vversion" >> $GITHUB_ENV
-           echo "version=$version" >> $GITHUB_ENV
+          echo "version=$(task next-release-version)" >> $GITHUB_ENV
 
       - name: Run trivy repository security scanner
         uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
@@ -82,7 +60,7 @@ jobs:
         with:
           repositoryOwner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
-          version: ${{ env.vversion }}
+          version: ${{ env.version }}
           product: ${{ env.repo_name }}
           metadataFileName: ${{ github.workspace }}/build_version.json
 
@@ -134,15 +112,6 @@ jobs:
               ]
             }
 
-      - name: Checkout build (taskfiles) repo
-        run: |
-          git clone https://github.com/openkcm/build.git ./hack/common
-
-      - name: Install Task
-        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
-        with:
-          version: 3.x
-
       - name: Generate SBOM
         run: |
           task cyclonedxgomod:app --verbose
@@ -158,16 +127,16 @@ jobs:
       - name: Create signed tag from main
         run: |
           git fetch origin main --tags
-          git tag -a "${{ env.vversion }}" origin/main -m "Release ${{ env.vversion }}" --local-user "$(git config user.signingkey)"
-          git push origin "refs/tags/${{ env.vversion }}"
+          git tag -a "${{ env.version }}" origin/main -m "Release ${{ env.version }}" --local-user "$(git config user.signingkey)"
+          git push origin "refs/tags/${{ env.version }}"
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
         with:
-          tag_name: ${{ env.vversion }}
-          name: Release ${{ env.vversion }}
+          tag_name: ${{ env.version }}
+          name: Release ${{ env.version }}
           body: ${{steps.github_release.outputs.changelog}}
           files: |
             *sbom.json
