@@ -34,13 +34,24 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
-      - name: Extracting Git Information
+      - name: Set up Go
+        uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
+        with:
+          go-version-file: go.mod
+
+      - name: Checkout build (taskfiles) repo
+        run: |
+          git clone https://github.com/openkcm/build.git ./hack/common
+
+      - name: Install Task
+        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
+        with:
+          version: 3.x
+
+      - name: Set Env
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
-          
-          git fetch --tags --force
-          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
-          echo "$latest_tag" > VERSION
+          echo "version=$(task version)" >> $GITHUB_ENV
 
       - name: Run trivy repository security scanner
         uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
@@ -62,21 +73,12 @@ jobs:
         with:
           repositoryOwner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
-          version: cat VERSION
+          version: ${{ env.version }}
           product: ${{ env.repo_name }}
           metadataFileName: ${{ github.workspace }}/build_version.json
 
       - name: Print Build Version
         run: cat ${{ github.workspace }}/build_version.json
-
-      - name: Checkout build (taskfiles) repo
-        run: |
-          git clone https://github.com/openkcm/build.git ./hack/common
-
-      - name: Install Task
-        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 #v2.0.0
-        with:
-          version: 3.x
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
@@ -98,11 +100,6 @@ jobs:
         uses: docker/setup-buildx-action@18ce135bb5112fa8ce4ed6c17ab05699d7f3a5e0 # v3.11.0
         with:
           version: latest
-
-      - name: Set up Go
-        uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
-        with:
-          go-version-file: go.mod
 
       - name: Build and Push Images
         run: |

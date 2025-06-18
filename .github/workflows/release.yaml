@@ -61,7 +61,6 @@ jobs:
         
            echo "vversion=$vversion" >> $GITHUB_ENV
            echo "version=$version" >> $GITHUB_ENV
-           echo "$vversion" > VERSION
 
       - name: Run trivy repository security scanner
         uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
@@ -83,7 +82,7 @@ jobs:
         with:
           repositoryOwner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
-          version: cat VERSION
+          version: ${{ env.vversion }}
           product: ${{ env.repo_name }}
           metadataFileName: ${{ github.workspace }}/build_version.json
 
