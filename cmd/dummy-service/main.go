@@ -130,7 +130,7 @@ func runFuncWithSignalHandling(f func(context.Context) error) int {
 
 	exitCode := 0
 	if err := f(ctx); err != nil {
-		slogctx.Error(ctx, "Failed to start the application", "error", err)
+		slogctx.Error(ctx, "Failed to start the application.", "error", err)
 		_, _ = fmt.Fprintln(os.Stderr, err)
 		exitCode = 1
 	}
