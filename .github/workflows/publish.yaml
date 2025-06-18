@@ -51,7 +51,7 @@ jobs:
       - name: Set Env
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
-          echo "version=$(task version)" >> $GITHUB_ENV
+          echo "version=$(task next-release-version)" >> $GITHUB_ENV
 
       - name: Run trivy repository security scanner
         uses: aquasecurity/trivy-action@76071ef0d7ec797419534a183b498b4d6366cf37 #v0.31.0
