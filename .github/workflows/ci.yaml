@@ -40,7 +40,7 @@ jobs:
         with:
           version: 3.x
 
-      - name: Set Env
+      - name: Set up environment
         run: |
           echo "repo_name=$(basename "$GITHUB_REPOSITORY")" >> $GITHUB_ENV
           echo "version=$(task next-release-version)" >> $GITHUB_ENV
