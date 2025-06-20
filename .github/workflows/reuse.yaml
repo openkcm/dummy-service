@@ -1,4 +1,4 @@
-name: Compliance Check
+name: Compliance
 
 on:
   push:
