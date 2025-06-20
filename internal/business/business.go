@@ -28,7 +28,7 @@ func Main(ctx context.Context, cfg *config.Config) error {
 	)
 
 	slogctx.Error(ctx, "main message",
-		slogctx.Err(errors.New("huraaaaa")),
+		slogctx.Err(errors.New("huraaaaaa")),
 		slog.String("mainKey", "mainValue"))
 	// Example of Slog using Context
 	//------------------------------------------------------------------
