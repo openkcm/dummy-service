@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2](https://github.com/openkcm/dummy-service/compare/v0.5.1...v0.5.2) (2025-07-22)
+
+
+### Bug Fixes
+
+* add new workflow ([ffc8ce3](https://github.com/openkcm/dummy-service/commit/ffc8ce304d691dda7a6c51423cd6b0811ca45881))
+
 ## [0.5.1](https://github.com/openkcm/dummy-service/compare/v0.5.0...v0.5.1) (2025-07-22)
 
 
