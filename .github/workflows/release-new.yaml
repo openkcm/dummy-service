@@ -84,3 +84,16 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./sbom.json *vuln.json
 
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
+        with:
+          tag_name: ${{ steps.github_release.outputs.version }}
+          name: Release ${{ steps.github_release.outputs.version }}
+          files: |
+            sbom.json
+            *vuln.json
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+
