@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.0](https://github.com/openkcm/dummy-service/compare/v0.4.0...v0.5.0) (2025-07-22)
+
+
+### Features
+
+* update the new release ([2aa6968](https://github.com/openkcm/dummy-service/commit/2aa696874189876002d784846f52711ea9510270))
+
+
+### Bug Fixes
+
+* add new release ([5fd14c0](https://github.com/openkcm/dummy-service/commit/5fd14c0ce4f73b47b9fdb21f815e22e888034f35))
+* update the new release ([797eda0](https://github.com/openkcm/dummy-service/commit/797eda06b717b3aba1b2f21fb8355c8c1fc3dd8f))
+* update the new release ([d342c46](https://github.com/openkcm/dummy-service/commit/d342c4613699b33303fa6736b187499cb21afc36))
+
 ## [0.4.0](https://github.com/openkcm/dummy-service/compare/v0.3.4...v0.4.0) (2025-07-22)
 
 
