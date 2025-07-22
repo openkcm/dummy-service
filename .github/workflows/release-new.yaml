@@ -93,7 +93,7 @@ jobs:
         with:
           body: ${{ env.PR_BODY }}
           tag_name: ${{ steps.github_release.outputs.version }}
-          name: Release ${{ steps.github_release.outputs.tagName }}
+          name: Release ${{ steps.github_release.outputs.tag_name }}
           files: |
             sbom.json
             *vuln.json
