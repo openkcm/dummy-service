@@ -17,7 +17,7 @@ func Main(ctx context.Context, cfg *config.Config) error {
 	// Example of Slog using Context
 	// TODO: To be deleted
 	// Add attributes directly to the logger in the context:
-	ctx = slogctx.With(ctx, "rootKey", "rootValue")
+	ctx = slogctx.With(ctx, "rootKey", "rootValue1")
 
 	// With and wrapper methods have the same args signature as slog methods,
 	// and can take a mix of slog.Attr and key-value pairs.
