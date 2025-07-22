@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.5.3](https://github.com/openkcm/dummy-service/compare/v0.5.2...v0.5.3) (2025-07-22)
+
+
+### Bug Fixes
+
+* improve the release creation ([e8d2ab4](https://github.com/openkcm/dummy-service/commit/e8d2ab48d37dc24bdb7a85c0e0c39a852ff3f54a))
+* improve the release creation ([c5dd46f](https://github.com/openkcm/dummy-service/commit/c5dd46f2149f86f56ed9e154e60f3af29efe302c))
+* improve the release creation ([1248853](https://github.com/openkcm/dummy-service/commit/124885391ddd0cec54f702675be1e9f54d2aa159))
+* improve the release creation ([ce99cfd](https://github.com/openkcm/dummy-service/commit/ce99cfd3a5de14a88700b7c6a9b6366bd3bd5a94))
+* improve the release creation ([35ee4ed](https://github.com/openkcm/dummy-service/commit/35ee4ed442ece069a6b7a013d116eee6f3038fb6))
+* improve the release creation ([de69271](https://github.com/openkcm/dummy-service/commit/de692712b2c5d71922bdbc81f207edc64f09d0a6))
+* improve the release creation ([2c189f7](https://github.com/openkcm/dummy-service/commit/2c189f701f40393cf59e9be5dfe0f13be7a43222))
+* improve the release creation ([de37cac](https://github.com/openkcm/dummy-service/commit/de37cacba777d16d0a796f9b4f7ab4be2e30a21a))
+* remove the latest workflow ([068d6b6](https://github.com/openkcm/dummy-service/commit/068d6b6dca0aba98b126ac2da3e29a077a15035d))
+
 ## [0.5.2](https://github.com/openkcm/dummy-service/compare/v0.5.1...v0.5.2) (2025-07-22)
 
 
