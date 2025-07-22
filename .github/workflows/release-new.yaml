@@ -84,8 +84,3 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./sbom.json *vuln.json
 
-      - name: Fail if no release created
-        if: steps.release.outputs.release_created != 'true'
-        run: |
-          echo "❌ No release was created. Make sure your commits contain release-worthy changes (e.g., 'feat:', 'fix:')"
-          exit 1
