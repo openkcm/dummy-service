@@ -85,7 +85,7 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./sbom.json *vuln.json
 
-      - id: Extract Tag Body
+      - name: Extract Tag Body
         run: echo "PR_BODY=$(echo '${{ steps.github_release.outputs.pr }}' | jq -r '.body')" >> $GITHUB_ENV
 
       - name: Create GitHub release
