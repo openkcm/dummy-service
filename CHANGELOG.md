@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/openkcm/dummy-service/compare/v0.5.0...v0.5.1) (2025-07-22)
+
+
+### Bug Fixes
+
+* remove the failure ([a21af1f](https://github.com/openkcm/dummy-service/commit/a21af1f8ba59a90e8fe630be0b56968b3616f515))
+
 ## [0.5.0](https://github.com/openkcm/dummy-service/compare/v0.4.0...v0.5.0) (2025-07-22)
 
 
