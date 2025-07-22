@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.4](https://github.com/openkcm/dummy-service/compare/v0.5.3...v0.5.4) (2025-07-22)
+
+
+### Bug Fixes
+
+* improve the release creation ([bcc5946](https://github.com/openkcm/dummy-service/commit/bcc5946ff6eb7a54e48b9da552a51a8020c3f2ac))
+* improve the release creation ([5078b37](https://github.com/openkcm/dummy-service/commit/5078b377db30b1cc41c27eabb3910bff7708dbc1))
+* improve the release creation ([ff6a826](https://github.com/openkcm/dummy-service/commit/ff6a826726be6d7093e6ecc9a5b1a47ecf54ae24))
+
 ## [0.5.3](https://github.com/openkcm/dummy-service/compare/v0.5.2...v0.5.3) (2025-07-22)
 
 
