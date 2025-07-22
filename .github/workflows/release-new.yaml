@@ -79,7 +79,7 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
 
       - name: Upload Release Artifact
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.github_release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./sbom.json *vuln.json
