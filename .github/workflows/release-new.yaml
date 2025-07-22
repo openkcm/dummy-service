@@ -85,12 +85,15 @@ jobs:
         run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./sbom.json *vuln.json
 
       - name: Extract Tag Body
+        if: ${{ steps.github_release.outputs.release_created }}
         run: |
+          BODY=$(echo '${{ steps.github_release.outputs.pr }}' | jq -r '.body')
           echo "PR_BODY<<EOF" >> $GITHUB_ENV
-          echo "${{ steps.github_release.outputs.pr }}" | jq -r '.body'
+          echo "$BODY" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Create GitHub release
+        if: ${{ steps.github_release.outputs.release_created }}
         uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
         with:
           body: ${{ env.PR_BODY }}
