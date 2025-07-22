@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.3](https://github.com/openkcm/dummy-service/compare/v0.5.2...v0.5.3) (2025-07-22)
+
+
+### Bug Fixes
+
+* remove the latest workflow ([068d6b6](https://github.com/openkcm/dummy-service/commit/068d6b6dca0aba98b126ac2da3e29a077a15035d))
+
 ## [0.5.2](https://github.com/openkcm/dummy-service/compare/v0.5.1...v0.5.2) (2025-07-22)
 
 
