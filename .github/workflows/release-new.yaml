@@ -47,6 +47,8 @@ jobs:
         with:
           version: v1
           args: mod -type library -json -licenses -output sbom.json
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
       - name: Run Trivy sbom vulnerability scanner
         uses: aquasecurity/trivy-action@dc5a429b52fcf669ce959baa2c2dd26090d2a6c4 #v0.32.0
