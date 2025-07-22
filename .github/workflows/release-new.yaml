@@ -87,7 +87,7 @@ jobs:
       - name: Extract Tag Body
         run: |
           echo "PR_BODY<<EOF" >> $GITHUB_ENV
-          echo "${{ steps.release.outputs.pr }}" | jq -r '.body'
+          echo "${{ steps.github_release.outputs.pr }}" | jq -r '.body'
           echo "EOF" >> $GITHUB_ENV
 
       - name: Create GitHub release
