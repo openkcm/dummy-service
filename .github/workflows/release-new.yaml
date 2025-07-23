@@ -46,7 +46,7 @@ jobs:
         uses: CycloneDX/gh-gomod-generate-sbom@efc74245d6802c8cefd925620515442756c70d8f #v2.0.0
         with:
           version: v1
-          args: mod -type library -json -licenses -output sbom.json
+          args: mod -type library -json -licenses -output ./assets/sbom.json
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
 
@@ -54,9 +54,9 @@ jobs:
         uses: aquasecurity/trivy-action@dc5a429b52fcf669ce959baa2c2dd26090d2a6c4 #v0.32.0
         with:
           scan-type: 'sbom'
-          scan-ref: "sbom.json"
+          scan-ref: "./assets/sbom.json"
           format: 'json'
-          output: 'trivy-sbom-vuln.json'
+          output: './assets/trivy-sbom-vuln.json'
 
       - name: Run trivy repository security scanner
         uses: aquasecurity/trivy-action@dc5a429b52fcf669ce959baa2c2dd26090d2a6c4 #v0.32.0
@@ -64,7 +64,7 @@ jobs:
           token-setup-trivy: ${{ steps.generate-token.outputs.token }}
           scan-type: repository
           format: json
-          output: trivy-repository-vuln.json
+          output: ./assets/trivy-repository-vuln.json
           severity: CRITICAL,HIGH,MEDIUM
 
       - name: Run tfsec security scanner
@@ -84,28 +84,5 @@ jobs:
         if: ${{ steps.github_release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
-        run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./sbom.json *vuln.json
-
-      - name: Extract Tag Body
-        if: ${{ steps.github_release.outputs.release_created }}
-        run: |
-          BODY=$(echo '${{ steps.github_release.outputs.pr }}' | jq -r '.body')
-          echo "PR_BODY<<EOF" >> $GITHUB_ENV
-          echo "$BODY" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Create GitHub release
-        if: ${{ steps.github_release.outputs.release_created }}
-        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
-        with:
-          body: ${{ env.PR_BODY }}
-          tag_name: ${{ steps.github_release.outputs.version }}
-          name: Release ${{ steps.github_release.outputs.tag_name }}
-          files: |
-            sbom.json
-            *vuln.json
-          draft: true
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./assets/**
 
