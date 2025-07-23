@@ -1,6 +1,9 @@
 name: Release Please (Manual Trigger)
 
 on:
+  pull_request:
+    types:
+      - closed
   workflow_dispatch:
 
 permissions:
@@ -49,6 +52,13 @@ jobs:
         with:
           release-type: go
           token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Stop if no release was created
+        if: ${{ steps.github_release.outputs.release_created != 'true' }}
+        run: |
+          echo "ℹ️ No release was created — a release PR was likely opened for the next version."
+          echo "👉 Please merge the release PR and re-run this workflow to publish the release."
+          exit 0
 
       - name: Setup
         run: |
@@ -100,7 +110,6 @@ jobs:
           format: json
 
       - name: Upload Release Artifact
-        if: ${{ steps.github_release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         run: gh release upload ${{ steps.github_release.outputs.tag_name }} ./assets/**
