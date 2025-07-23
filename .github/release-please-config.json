@@ -1,63 +1,55 @@
 {
-  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "release-type": "go",
   "bump-minor-pre-major": true,
   "include-v-in-tag": true,
   "changelog-type": "github",
-  "packages": {
-    ".": {
-      "release-type": "go",
-      "include-v-in-tag": true,
-      "changelog-type": "github",
-      "changelog-host": "github.com",
-      "extra-files": [
-        "go.mod",
-        "go.sum"
-      ],
-      "pull-request-title-pattern": "chore${scope}: release ${version}",
-      "pull-request-header": ":rocket: A new release is on the way! This PR includes all changes since the last version.",
-      "pull-request-footer": "This PR was generated using [release-please](https://github.com/googleapis/release-please).",
-      "separate-pull-requests": false,
-      "draft": false,
-      "changelog-sections": [
-        {
-          "type": "feat",
-          "section": "🚀 Features",
-          "hidden": false
-        },
-        {
-          "type": "fix",
-          "section": "🐛 Bug Fixes",
-          "hidden": false
-        },
-        {
-          "type": "docs",
-          "section": "📝 Documentation",
-          "hidden": false
-        },
-        {
-          "type": "chore",
-          "section": "🧰 Maintenance",
-          "hidden": false
-        },
-        {
-          "type": "ci",
-          "section": "🔧 CI/CD",
-          "hidden": false
-        },
-        {
-          "type": "build",
-          "section": "🧱 Build / Dependencies",
-          "hidden": false
-        }
-      ],
-      "commit-filter": {
-        "exclude": [
-          {
-            "message": ".*(release|chore\\(release\\)|chore\\(main\\)) release.*"
-          }
-        ]
-      }
+  "changelog-host": "github.com",
+  "extra-files": [
+    "go.mod",
+    "go.sum"
+  ],
+  "pull-request-title-pattern": "chore${scope}: release ${version}",
+  "pull-request-header": ":rocket: A new release is on the way! This PR includes all changes since the last version.",
+  "pull-request-footer": "This PR was generated using [release-please](https://github.com/googleapis/release-please).",
+  "separate-pull-requests": false,
+  "draft": false,
+  "changelog-sections": [
+    {
+      "type": "feat",
+      "section": "🚀 Features",
+      "hidden": false
+    },
+    {
+      "type": "fix",
+      "section": "🐛 Bug Fixes",
+      "hidden": false
+    },
+    {
+      "type": "docs",
+      "section": "📝 Documentation",
+      "hidden": false
+    },
+    {
+      "type": "chore",
+      "section": "🧰 Maintenance",
+      "hidden": false
+    },
+    {
+      "type": "ci",
+      "section": "🔧 CI/CD",
+      "hidden": false
+    },
+    {
+      "type": "build",
+      "section": "🧱 Build / Dependencies",
+      "hidden": false
     }
+  ],
+  "commit-filter": {
+    "exclude": [
+      {
+        "message": ".*(release|chore\\(release\\)|chore\\(main\\)) release.*"
+      }
+    ]
   }
 }
