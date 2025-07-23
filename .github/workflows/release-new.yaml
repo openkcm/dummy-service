@@ -41,6 +41,11 @@ jobs:
           git config --global commit.gpgsign true
           git config --global tag.gpgSign true
           git config --global gpg.program gpg
+          
+
+      - name: Init
+        run: |
+          mkdir assets
 
       - name: Generate SBOM
         uses: CycloneDX/gh-gomod-generate-sbom@efc74245d6802c8cefd925620515442756c70d8f #v2.0.0
