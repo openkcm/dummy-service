@@ -3,6 +3,9 @@
   "draft": false,
   "prerelease": false,
   "separate-pull-requests": false,
+  "group-pull-request-title-pattern": "chore${scope}: releases ${version}",
+  "pull-request-header": ":rocket: A new release is on the way! This PR includes all changes since the last version.",
+  "pull-request-footer": "This PR was generated using [release-please](https://github.com/googleapis/release-please).",
   "packages": {
     ".": {
       "release-type": "go",
