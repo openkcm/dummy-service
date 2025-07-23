@@ -1,9 +1,6 @@
 name: Release Please (Manual Trigger)
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     types:
       - closed
