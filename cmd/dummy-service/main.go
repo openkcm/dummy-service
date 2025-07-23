@@ -112,7 +112,7 @@ func run(ctx context.Context) error {
 	err = business.Main(ctx, cfg)
 	if err != nil {
 		return oops.In("main").
-			Wrapf(err, "Failed to start the main business application x")
+			Wrapf(err, "Failed to start the main business application")
 	}
 
 	return nil
