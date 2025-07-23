@@ -1,24 +1,20 @@
-name: Release Please (Manual Trigger)
+name: Release New Version
 
 on:
   pull_request:
     types:
       - closed
-  workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   release:
     if: |
-      github.event_name == 'workflow_dispatch' || 
-      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-      (github.event_name == 'pull_request' &&
+       github.event_name == 'pull_request' &&
        github.event.pull_request.merged == true &&
        contains(github.event.pull_request.title, 'chore(main)') &&
-       contains(github.event.pull_request.title, 'release'))
+       contains(github.event.pull_request.title, 'release')
     runs-on: ubuntu-24.04
     steps:
       - name: Generate token from GitHub App
