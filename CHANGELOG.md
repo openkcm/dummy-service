@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/openkcm/dummy-service/compare/v1.1.0...v1.1.1) (2025-07-23)
+
+
+### Bug Fixes
+
+* change the permissions for publish ([f9b844d](https://github.com/openkcm/dummy-service/commit/f9b844d2293b3d8bdf94e91cc4b4ac506fe80ccf))
+
 ## [1.1.0](https://github.com/openkcm/dummy-service/compare/v1.0.6...v1.1.0) (2025-07-23)
 
 
