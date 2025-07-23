@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 (2025-07-23)
+
+## What's Changed
+* refactor!: improve the release creation by @nnicora in https://github.com/openkcm/dummy-service/pull/240
+* build(deps): bump google.golang.org/grpc from 1.73.0 to 1.74.2 by @dependabot[bot] in https://github.com/openkcm/dummy-service/pull/239
+* chore(main): release 1.0.0 by @push-tags-from-workflow[bot] in https://github.com/openkcm/dummy-service/pull/241
+
+
+**Full Changelog**: https://github.com/openkcm/dummy-service/compare/v0.5.4...v1.0.0
+
 ## [1.1.1](https://github.com/openkcm/dummy-service/compare/v1.1.0...v1.1.1) (2025-07-23)
 
 
