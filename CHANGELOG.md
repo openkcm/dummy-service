@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.1.0](https://github.com/openkcm/dummy-service/compare/v1.0.6...v1.1.0) (2025-07-23)
+
+
+### Features
+
+* add codeql.yaml ([77181dc](https://github.com/openkcm/dummy-service/commit/77181dc2fae4210246ab7fb72ada64d1c694e8e6))
+
+
+### Bug Fixes
+
+* change the permissions for release manual ([4bbbd7c](https://github.com/openkcm/dummy-service/commit/4bbbd7ca7956d93c3a9a454f49ae7e953988dc9a))
+* fix the release file ([6abd344](https://github.com/openkcm/dummy-service/commit/6abd344464b1866e45d3ae3630f286681a16f4b9))
+* modify existing release to use the build workflows ([ad71c2c](https://github.com/openkcm/dummy-service/commit/ad71c2c58837c4be18df1af2405f2ec8ae70932d))
+* renamed some release files ([94824ae](https://github.com/openkcm/dummy-service/commit/94824ae95b2d7f25a84c3dd648d8c333ca298dcf))
+* update the codeql permissions ([a4ee4bb](https://github.com/openkcm/dummy-service/commit/a4ee4bb0ac28ca4dbf1aeabfdfdb5036d2cef82d))
+
 ## [1.0.6](https://github.com/openkcm/dummy-service/compare/v1.0.5...v1.0.6) (2025-07-23)
 
 
