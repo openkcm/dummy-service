@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.2](https://github.com/openkcm/dummy-service/compare/v1.1.1...v1.1.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* changes on the release-please-config.json ([8b8721f](https://github.com/openkcm/dummy-service/commit/8b8721fd2a3527f87eaac19a098cd43e7725848e))
+* changes on the release-please-config.json ([aef081c](https://github.com/openkcm/dummy-service/commit/aef081c2b30c1b46d2b89b06ad1afd8f30432046))
+* changes on the release-please-config.json ([24f8ff2](https://github.com/openkcm/dummy-service/commit/24f8ff2886bbe181254cc31c8c6a1b9cd9ebcaf9))
+* changes on the release-please-config.json ([eaca79e](https://github.com/openkcm/dummy-service/commit/eaca79e9a46d32a15fe30f2f94c169fae9d4efe2))
+* move file release-please-config.json to .github folder ([288ba38](https://github.com/openkcm/dummy-service/commit/288ba38f6829242c6979940271fe3c462c9bc8ca))
+* remove a character ([#254](https://github.com/openkcm/dummy-service/issues/254)) ([a57ffcc](https://github.com/openkcm/dummy-service/commit/a57ffcc47c808d986822468cfb75641304f3dd39))
+* renamed .release-please-config.json ([bd1937d](https://github.com/openkcm/dummy-service/commit/bd1937d32df9d8c97f6d8c10779069e96513892d))
+* small change on the .release-please-config.json ([13126a3](https://github.com/openkcm/dummy-service/commit/13126a31c2ca83ebcc8d3ce6253f26e0a4c30b18))
+* small change on the labeler.yaml ([0966988](https://github.com/openkcm/dummy-service/commit/096698856926469318c32c1a77328a7294b0d825))
+
 ## [1.1.1](https://github.com/openkcm/dummy-service/compare/v1.1.0...v1.1.1) (2025-07-23)
 
 
