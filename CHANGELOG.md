@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/openkcm/dummy-service/compare/v1.0.3...v1.0.4) (2025-07-23)
+
+
+### Bug Fixes
+
+* change some logs messages ([#248](https://github.com/openkcm/dummy-service/issues/248)) ([3e0d149](https://github.com/openkcm/dummy-service/commit/3e0d1491e8a2d07c9e3ff343da0782520b35549f))
+* change the release action ([#247](https://github.com/openkcm/dummy-service/issues/247)) ([e2b7569](https://github.com/openkcm/dummy-service/commit/e2b75691bab9eb7a44f13532c36a5d506b207aa6))
+
 ## [1.0.3](https://github.com/openkcm/dummy-service/compare/v1.0.2...v1.0.3) (2025-07-23)
 
 
