@@ -1,9 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-  "release-type": "go",
-  "bump-minor-pre-major": true,
-  "include-v-in-tag": true,
-  "changelog-type": "github",
   "packages": {
     ".": {
       "release-type": "go",
@@ -50,14 +46,7 @@
           "section": "🧱 Build / Dependencies",
           "hidden": false
         }
-      ],
-      "commit-filter": {
-        "exclude": [
-          {
-            "message": ".*(release|chore\\(release\\)|chore\\(main\\)) release.*"
-          }
-        ]
-      }
+      ]
     }
   }
 }
