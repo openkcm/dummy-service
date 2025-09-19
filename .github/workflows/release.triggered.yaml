@@ -9,6 +9,6 @@ permissions:
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/release.manual.yaml@main
+    uses: openkcm/build/.github/workflows/release.manual.yaml@feature/use-ldflags
     secrets: inherit
 
