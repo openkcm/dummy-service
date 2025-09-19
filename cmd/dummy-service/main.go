@@ -9,7 +9,6 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/mcuadros/go-defaults"
 	"github.com/openkcm/common-sdk/pkg/commoncfg"
 	"github.com/openkcm/common-sdk/pkg/health"
 	"github.com/openkcm/common-sdk/pkg/logger"
@@ -46,7 +45,6 @@ func run(ctx context.Context) error {
 		return oops.In("main").
 			Wrapf(err, "Failed to load the configuration")
 	}
-	defaults.SetDefaults(cfg)
 
 	err = commoncfg.UpdateConfigVersion(&cfg.BaseConfig, BuildInfo)
 	if err != nil {
