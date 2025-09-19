@@ -17,5 +17,5 @@ permissions:
 
 jobs:
   analyze:
-    uses: openkcm/build/.github/workflows/codeql.yaml@main
+    uses: openkcm/build/.github/workflows/codeql.yaml@feature/use-ldflags
     secrets: inherit

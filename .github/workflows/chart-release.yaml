@@ -14,5 +14,5 @@ env:
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/chart-release.svc.yaml@main
+    uses: openkcm/build/.github/workflows/chart-release.svc.yaml@feature/use-ldflags
     secrets: inherit
