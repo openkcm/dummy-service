@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/openkcm/dummy-service/compare/v1.1.2...v1.2.0) (2025-09-19)
+
+
+### Features
+
+* add semantic.yml ([27dae7f](https://github.com/openkcm/dummy-service/commit/27dae7fa8395bac4380396564edda3e5a7df8d3d))
+* new build version aproach ([#283](https://github.com/openkcm/dummy-service/issues/283)) ([6306607](https://github.com/openkcm/dummy-service/commit/63066075f1ff65459e6359040b77161f94f15c73))
+
+
+### Bug Fixes
+
+* add permissions into the labeler ([7f19b27](https://github.com/openkcm/dummy-service/commit/7f19b2720a7a184d80cd2680d557f026b1b57669))
+* changes on the release-please-config.json ([edfafdc](https://github.com/openkcm/dummy-service/commit/edfafdc25fb3bbff1ed7ca62acfa3f23f57c7a4c))
+* changes on the release-please-config.json ([4e7662e](https://github.com/openkcm/dummy-service/commit/4e7662e7465a8354695fce13da85852b7c627037))
+
 ## 1.1.2 (2025-07-23)
 
 ## What's Changed
