@@ -35,6 +35,7 @@ var (
 //   - Load the config and initializes the logger
 //   - Start the status server in a goroutine
 //   - Start the business logic and eventually return the error from it
+//   - 1
 func run(ctx context.Context) error {
 	// Load Configuration
 	defaultValues := map[string]interface{}{}
