@@ -10,5 +10,5 @@ permissions:
 
 jobs:
   do:
-    uses: openkcm/build/.github/workflows/labeler.yaml@feature/use-ldflags
+    uses: openkcm/build/.github/workflows/labeler.yaml@main
     secrets: inherit
