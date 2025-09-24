@@ -14,6 +14,7 @@ import (
 	"github.com/openkcm/common-sdk/pkg/logger"
 	"github.com/openkcm/common-sdk/pkg/otlp"
 	"github.com/openkcm/common-sdk/pkg/status"
+	"github.com/openkcm/common-sdk/pkg/utils"
 	"github.com/samber/oops"
 
 	slogctx "github.com/veqryn/slog-context"
@@ -150,7 +151,7 @@ func main() {
 	flag.Parse()
 
 	if *versionFlag {
-		fmt.Println(BuildInfo)
+		fmt.Println(utils.ExtractFromComplexValue(BuildInfo))
 		os.Exit(0)
 	}
 

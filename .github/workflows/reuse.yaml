@@ -15,5 +15,5 @@ permissions:
 
 jobs:
   check:
-    uses: openkcm/build/.github/workflows/reuse.svc.yaml@feature/use-ldflags
+    uses: openkcm/build/.github/workflows/reuse.svc.yaml@main
     secrets: inherit
