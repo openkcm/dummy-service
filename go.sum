@@ -48,8 +48,8 @@ github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822/go.mod h1:+n7T8m
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/oklog/ulid/v2 v2.1.1 h1:suPZ4ARWLOJLegGFiZZ1dFAkqzhMjL3J1TzI+5wHz8s=
 github.com/oklog/ulid/v2 v2.1.1/go.mod h1:rcEKHmBBKfef9DhnvX7y1HZBYxjXb0cP5ExxNsTT1QQ=
-github.com/openkcm/common-sdk v1.4.4 h1:mignbG+dwkGG8r3RAO/L1/chdI2a+F+GC+pTHiea4Fc=
-github.com/openkcm/common-sdk v1.4.4/go.mod h1:O1Y2NbQd0F8LTnPFmCH6vltI7gGtwFSrkisIEEi4IlA=
+github.com/openkcm/common-sdk v1.4.6 h1:w1MqBMFXjqsROXDzcSVBpKyG/ajs2lWxs//cGIbP7FY=
+github.com/openkcm/common-sdk v1.4.6/go.mod h1:QEcHRasBD8BHJaUjHq1XHKB7rvfRmgnHvitS2ANT+kc=
 github.com/pborman/getopt v0.0.0-20170112200414-7148bc3a4c30/go.mod h1:85jBQOZwpVEaDAr341tbn15RS4fCAsIst0qp7i8ex1o=
 github.com/pelletier/go-toml/v2 v2.2.4 h1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4=
 github.com/pelletier/go-toml/v2 v2.2.4/go.mod h1:2gIqNv+qfxSVS7cM2xJQKtLSTLUE9V8t9Stt+h56mCY=
@@ -71,8 +71,8 @@ github.com/sagikazarmark/locafero v0.11.0 h1:1iurJgmM9G3PA/I+wWYIOw/5SyBtxapeHDc
 github.com/sagikazarmark/locafero v0.11.0/go.mod h1:nVIGvgyzw595SUSUE6tvCp3YYTeHs15MvlmU87WwIik=
 github.com/samber/lo v1.51.0 h1:kysRYLbHy/MB7kQZf5DSN50JHmMsNEdeY24VzJFu7wI=
 github.com/samber/lo v1.51.0/go.mod h1:4+MXEGsJzbKGaUEQFKBq2xtfuznW9oz/WrgyzMzRoM0=
-github.com/samber/oops v1.19.0 h1:sfZAwC8MmTXBRRyNc4Z1utuTPBx+hFKF5fJ9DEQRZfw=
-github.com/samber/oops v1.19.0/go.mod h1:+f+61dbiMxEMQ8gw/zTxW2pk+YGobaDM4glEHQtPOww=
+github.com/samber/oops v1.19.3 h1:GAfSUOCh/JbnKAj5Ia+r/3KNnBdK+VdVDq1F5I8nDfM=
+github.com/samber/oops v1.19.3/go.mod h1:1lIO/SwpPltzw5cDO8/oiyVuLiQt3/8iid21Vb8QP+8=
 github.com/samber/slog-common v0.19.0 h1:fNcZb8B2uOLooeYwFpAlKjkQTUafdjfqKcwcC89G9YI=
 github.com/samber/slog-common v0.19.0/go.mod h1:dTz+YOU76aH007YUU0DffsXNsGFQRQllPQh9XyNoA3M=
 github.com/samber/slog-formatter v1.2.0 h1:gTSHm4CxyySyhcxRkzk21CSKbGCdZVipbRMhINkNtQU=
