@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.4](https://github.com/openkcm/dummy-service/compare/v2.0.3...v2.0.4) (2025-10-14)
+
+
+### Bug Fixes
+
+* update the build depdendency ([#303](https://github.com/openkcm/dummy-service/issues/303)) ([99b464a](https://github.com/openkcm/dummy-service/commit/99b464aca4675b6e2ced73123bb1a40d75bc0345))
+
 ## [2.0.3](https://github.com/openkcm/dummy-service/compare/v2.0.2...v2.0.3) (2025-10-14)
 
 
