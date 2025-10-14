@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.2](https://github.com/openkcm/dummy-service/compare/v2.0.1...v2.0.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* adjust the build info ([#290](https://github.com/openkcm/dummy-service/issues/290)) ([285926f](https://github.com/openkcm/dummy-service/commit/285926f43206f40563f152294ced381ad84ec6c9))
+* **deps:** bump github.com/openkcm/common-sdk from 1.4.4 to 1.4.7 ([#298](https://github.com/openkcm/dummy-service/issues/298)) ([67daef9](https://github.com/openkcm/dummy-service/commit/67daef99dfa52147dd9695096d4ff72712322695))
+* **deps:** bump google.golang.org/grpc from 1.75.1 to 1.76.0 ([#296](https://github.com/openkcm/dummy-service/issues/296)) ([24bec87](https://github.com/openkcm/dummy-service/commit/24bec87d24b8f37170330eb797ca7b9508568ed5))
+* image signing ([#299](https://github.com/openkcm/dummy-service/issues/299)) ([fd77a14](https://github.com/openkcm/dummy-service/commit/fd77a14b1d1d6bd10a9f07c3caa1036b28ebcf35))
+
 ## [2.0.1](https://github.com/openkcm/dummy-service/compare/v2.0.0...v2.0.1) (2025-09-21)
 
 
