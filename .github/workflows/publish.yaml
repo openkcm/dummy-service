@@ -19,5 +19,5 @@ env:
 
 jobs:
   released:
-    uses: openkcm/build/.github/workflows/publish.svc.yaml@742359806bb6a3131d33b7ee1d79b3208b0bbb91
+    uses: openkcm/build/.github/workflows/publish.svc.yaml@465c4683f4a687a853b4331a31e265523d96af5e
     secrets: inherit
