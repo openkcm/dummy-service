@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.10](https://github.com/openkcm/dummy-service/compare/v2.0.9...v2.0.10) (2025-10-15)
+
+
+### Bug Fixes
+
+* updates on the signing images ([#315](https://github.com/openkcm/dummy-service/issues/315)) ([2ab3583](https://github.com/openkcm/dummy-service/commit/2ab358322efe26312f341b601ffb4171091d3597))
+* updates on the signing images ([#316](https://github.com/openkcm/dummy-service/issues/316)) ([4a74bbf](https://github.com/openkcm/dummy-service/commit/4a74bbfd7d6078ec77c3673a49eebf59e39a4239))
+* updates on the signing images ([#317](https://github.com/openkcm/dummy-service/issues/317)) ([07d2950](https://github.com/openkcm/dummy-service/commit/07d29501a2e18bb66ed0ef9797fbbb23e80aa4df))
+
 ## [2.0.9](https://github.com/openkcm/dummy-service/compare/v2.0.8...v2.0.9) (2025-10-14)
 
 
