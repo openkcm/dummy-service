@@ -20,13 +20,7 @@ env:
 jobs:
   released:
     env:
-      IMAGE_SIGNING_ENABLED:
-        description: 'Enable image signing (true|false)'
-        required: false
-        default: 'true'
-      OCM_SIGNING_ENABLED:
-        description: 'Enable OCM signing (true|false)'
-        required: false
-        default: 'false'
+      IMAGE_SIGNING_ENABLED: true
+      OCM_SIGNING_ENABLED: false
     uses: openkcm/build/.github/workflows/publish.svc.yaml@b689df7e293a21bb6cf485635b18efb945dc89cf
     secrets: inherit
