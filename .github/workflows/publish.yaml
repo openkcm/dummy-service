@@ -19,7 +19,7 @@ env:
 
 jobs:
   released:
-    uses: openkcm/build/.github/workflows/publish.svc.yaml@0718c0ac19689eea0fa7879e2389098c6742a531
+    uses: openkcm/build/.github/workflows/publish.svc.yaml@34e24b2d8f99ecd60000027cc604640a5e091a25
     with:
       image_signing_enabled: true  # Passed as the boolean 'true'
       ocm_signing_enabled: true   # Passed as the boolean 'true'
