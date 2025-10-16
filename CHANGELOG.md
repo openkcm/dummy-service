@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.28](https://github.com/openkcm/dummy-service/compare/v2.0.27...v2.0.28) (2025-10-16)
+
+
+### Bug Fixes
+
+* disable the signing of images process ([ac76fa5](https://github.com/openkcm/dummy-service/commit/ac76fa532995395c99525b88b0bf9b4614b8adac))
+
 ## [2.0.27](https://github.com/openkcm/dummy-service/compare/v2.0.26...v2.0.27) (2025-10-16)
 
 
