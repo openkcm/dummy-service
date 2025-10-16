@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.29](https://github.com/openkcm/dummy-service/compare/v2.0.28...v2.0.29) (2025-10-16)
+
+
+### Bug Fixes
+
+* enable the signing of images process ([ee3e3c2](https://github.com/openkcm/dummy-service/commit/ee3e3c2be6a8079268df6a1b0bb66f3b7e48f93a))
+
 ## [2.0.28](https://github.com/openkcm/dummy-service/compare/v2.0.27...v2.0.28) (2025-10-16)
 
 
