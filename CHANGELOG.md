@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.21](https://github.com/openkcm/dummy-service/compare/v2.0.20...v2.0.21) (2025-10-16)
+
+
+### Bug Fixes
+
+* add a second binary ([#339](https://github.com/openkcm/dummy-service/issues/339)) ([a3fdbe5](https://github.com/openkcm/dummy-service/commit/a3fdbe5ba85316871ee85a6f524b7fe458e867ae))
+* update the publish workflow to point to main ([b39e329](https://github.com/openkcm/dummy-service/commit/b39e32901d2774818848cff7d9268e49882d256e))
+
 ## [2.0.20](https://github.com/openkcm/dummy-service/compare/v2.0.19...v2.0.20) (2025-10-15)
 
 
