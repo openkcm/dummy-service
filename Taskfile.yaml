@@ -2,7 +2,7 @@ version: 3
 
 includes:
   shared:
-    taskfile: hack/common/Taskfile_service.yaml
+    taskfile: hack/common/Taskfile_plugins_test.yaml
     flatten: true
     excludes: [] # put task names in here which are overwritten in this file
     vars:
