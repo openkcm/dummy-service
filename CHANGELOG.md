@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.24](https://github.com/openkcm/dummy-service/compare/v2.0.23...v2.0.24) (2025-10-16)
+
+
+### Bug Fixes
+
+* remove the docker file ([#345](https://github.com/openkcm/dummy-service/issues/345)) ([bc040c5](https://github.com/openkcm/dummy-service/commit/bc040c5037dfede3352453b294906443bafe5093))
+* rollback ([2e61e08](https://github.com/openkcm/dummy-service/commit/2e61e086fd338efffebd6075740abae5b6d762e5))
+* rollback ([d61aa67](https://github.com/openkcm/dummy-service/commit/d61aa675736b78dd3580317ef647ed8fb848b722))
+
 ## [2.0.23](https://github.com/openkcm/dummy-service/compare/v2.0.22...v2.0.23) (2025-10-16)
 
 
