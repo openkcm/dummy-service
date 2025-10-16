@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dummy-service.name" . }}-config
+  namespace: {{ include "dummy-service.namespace" . }}
+  labels:
+    {{- include "dummy-service.labels" . | nindent 4 }}
+immutable: {{ .Values.config.isImmutable | default false }}
+data:
+  config.yaml: |-
+    application:
+      name: {{ .Chart.Name }}
+
+
