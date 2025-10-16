@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.25](https://github.com/openkcm/dummy-service/compare/v2.0.24...v2.0.25) (2025-10-16)
+
+
+### Bug Fixes
+
+* add a second service ([#347](https://github.com/openkcm/dummy-service/issues/347)) ([454d392](https://github.com/openkcm/dummy-service/commit/454d392dc9077d85de4c353e528d98fa702e034a))
+* name of second service ([#348](https://github.com/openkcm/dummy-service/issues/348)) ([b4b7a57](https://github.com/openkcm/dummy-service/commit/b4b7a57d730f46a958fc3aaa9113c2172b1ce9b4))
+
 ## [2.0.24](https://github.com/openkcm/dummy-service/compare/v2.0.23...v2.0.24) (2025-10-16)
 
 
