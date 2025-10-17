@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.30](https://github.com/openkcm/dummy-service/compare/v2.0.29...v2.0.30) (2025-10-17)
+
+
+### Bug Fixes
+
+* remove variable from Taskfile.yaml ([27e9dc7](https://github.com/openkcm/dummy-service/commit/27e9dc700682b408c7bdb84721e1b4f8af071187))
+
 ## [2.0.29](https://github.com/openkcm/dummy-service/compare/v2.0.28...v2.0.29) (2025-10-16)
 
 
