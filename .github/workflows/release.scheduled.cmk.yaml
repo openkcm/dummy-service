@@ -1,0 +1,16 @@
+name: Release CMK
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  release:
+    uses: openkcm/build/.github/workflows/specific/release.cmk.yaml@feature/cmk-image-build
+    secrets: inherit
+
