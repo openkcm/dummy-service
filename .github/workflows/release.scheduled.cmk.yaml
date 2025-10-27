@@ -11,5 +11,5 @@ permissions:
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/cmk-release.image.yaml@feature/cmk-image-build
+    uses: openkcm/build/.github/workflows/cmk-release.image.yaml@44e7fb878c3526d9edc145ad93162adebb412bf5
     secrets: inherit
