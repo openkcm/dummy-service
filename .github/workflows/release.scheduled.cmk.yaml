@@ -7,9 +7,9 @@ on:
 
 permissions:
   packages: write
-  contents: read
+  contents: write
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/app.cmk.push.composite-image.yaml@2a8a3d7a0e675d319bbaa6f042150800e946b0d9
+    uses: openkcm/build/.github/workflows/app.cmk.push.composite-image.yaml@0823104612c81daa46b801a1929f580710d72b3f
     secrets: inherit
