@@ -11,5 +11,5 @@ permissions:
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/app.cmk.push.composite-image.yaml@606ec2aeea5e50b7a7068a25b9a411db09236bc0
+    uses: openkcm/build/.github/workflows/app.cmk.push.composite-image.yaml@64701e4061441a095bebcc887108e071787dbf8f
     secrets: inherit
