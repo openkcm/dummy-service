@@ -6,11 +6,10 @@ on:
     - cron: '*/5 * * * *'   # every 5 minutes
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/specific/release.cmk.yaml@feature/cmk-image-build
+    uses: openkcm/build/.github/workflows/specific/release.cmk.yaml@c87f1e21b825a5712623a18c0214d3b1fec7de5d
     secrets: inherit
-
