@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/app.cmk.push.composite-image.yaml@38914bce8bb57f33f5168ac0977cbffb8eab3472
+    uses: openkcm/build/.github/workflows/app.cmk.push.composite-image.yaml@3f96d77c0c9ef8db529f8d2999d3ef753b35cc1b
     with:
       image_signing_enabled: true
       ocm_signing_enabled: true
