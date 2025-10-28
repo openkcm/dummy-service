@@ -2,8 +2,8 @@ name: Release CMK
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'   # every 5 minutes
+#  schedule:
+#    - cron: '*/5 * * * *'   # every 5 minutes
 
 permissions:
   packages: write
