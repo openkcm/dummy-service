@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.31](https://github.com/openkcm/dummy-service/compare/v2.0.30...v2.0.31) (2025-10-28)
+
+
+### Bug Fixes
+
+* add composite image build ([#356](https://github.com/openkcm/dummy-service/issues/356)) ([0cd9396](https://github.com/openkcm/dummy-service/commit/0cd939661b1a637c1818a131931fd4a4e0612992))
+* add scheduled workflow ([1f26489](https://github.com/openkcm/dummy-service/commit/1f2648987d46da6ad36b5afa51982ff2ec8041e4))
+* add scheduled workflow ([5758d7d](https://github.com/openkcm/dummy-service/commit/5758d7dd2f3fe282e992c0138a35f3c0ec6cf039))
+* add scheduled workflow ([9e224c9](https://github.com/openkcm/dummy-service/commit/9e224c91ca4a1ce3dc7d3a364772d1d28ff70bc4))
+
 ## [2.0.30](https://github.com/openkcm/dummy-service/compare/v2.0.29...v2.0.30) (2025-10-17)
 
 
