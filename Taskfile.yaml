@@ -8,3 +8,5 @@ includes:
     vars:
       CODE_DIRS: '{{.ROOT_DIR}}/pkg/... {{.ROOT_DIR}}/cmd/... {{.ROOT_DIR}}/test/... {{.ROOT_DIR}}/internal/...'
       COMPONENTS: 'dummy-service dummy-service-second'
+#      IMG_COMPONENTS: 'dummy-service dummy-service-2 dummy-service-second'
+#      CHART_COMPONENTS: 'dummy-service dummy-service-second'
