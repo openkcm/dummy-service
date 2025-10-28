@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.32](https://github.com/openkcm/dummy-service/compare/v2.0.31...v2.0.32) (2025-10-28)
+
+
+### Bug Fixes
+
+* add img and chart variable into the Taskfile.yaml ([f5c7c94](https://github.com/openkcm/dummy-service/commit/f5c7c94391cd4c305a5897a8ee30e6bf135a3697))
+
 ## [2.0.31](https://github.com/openkcm/dummy-service/compare/v2.0.30...v2.0.31) (2025-10-28)
 
 
