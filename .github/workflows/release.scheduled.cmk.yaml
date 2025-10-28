@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   release:
-    uses: openkcm/build/.github/workflows/apps-cmk-publish.yaml@7136110b41ad81bd63577be3629e8f0f065713ca
+    uses: openkcm/build/.github/workflows/apps-composite-publish.yaml@28411d07b3b5c67aa31a28f11dce089c56aec3c9
     with:
       image_signing_enabled: true
       ocm_signing_enabled: true
