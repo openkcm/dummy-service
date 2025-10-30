@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.33](https://github.com/openkcm/dummy-service/compare/v2.0.32...v2.0.33) (2025-10-30)
+
+
+### Bug Fixes
+
+* **deps:** bump github.com/openkcm/common-sdk from 1.4.7 to 1.5.2 ([#361](https://github.com/openkcm/dummy-service/issues/361)) ([9f13131](https://github.com/openkcm/dummy-service/commit/9f1313135c393c1b7941bae94334cc2c1116a8f8))
+* include the composite building into the publish.yaml ([4eeb81c](https://github.com/openkcm/dummy-service/commit/4eeb81c4d5e8ee2b70cfe6f563cdfdae6a2f7a6d))
+* remove scheduled build from release.scheduled.cmk.yaml ([7b8a271](https://github.com/openkcm/dummy-service/commit/7b8a27169da73360202f5d803aa2ee954b37c1d4))
+* remove the docker from Dependabot ([50ba55c](https://github.com/openkcm/dummy-service/commit/50ba55c0ae5e54d02b091c157201b8bdd077472a))
+* remove the OCI_URL variable ([073fc5b](https://github.com/openkcm/dummy-service/commit/073fc5b26bf91a7a7d3c8b6c45e40b2fbea08767))
+
 ## [2.0.32](https://github.com/openkcm/dummy-service/compare/v2.0.31...v2.0.32) (2025-10-28)
 
 
