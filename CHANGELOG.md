@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.34](https://github.com/openkcm/dummy-service/compare/v2.0.33...v2.0.34) (2025-11-06)
+
+
+### Bug Fixes
+
+* update a default value ([#364](https://github.com/openkcm/dummy-service/issues/364)) ([45f3100](https://github.com/openkcm/dummy-service/commit/45f3100ed643db68f1349966872b8bc28e6d6461))
+
 ## [2.0.33](https://github.com/openkcm/dummy-service/compare/v2.0.32...v2.0.33) (2025-10-30)
 
 
