@@ -18,7 +18,7 @@ type Config struct {
 type HTTPServer struct {
 	// HTTP.Address is the address to listen on for HTTP requests
 	Address         string        `yaml:"address" default:":8080"`
-	ShutdownTimeout time.Duration `yaml:"shutdownTimeout" default:"5s"`
+	ShutdownTimeout time.Duration `yaml:"shutdownTimeout" default:"6s"`
 }
 
 type GRPCServer struct {
