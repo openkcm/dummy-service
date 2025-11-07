@@ -42,11 +42,12 @@
       "hidden": false
     }
   ],
-  "commit-search-depth": 500,
-  "release-search-depth": 400,
+  "commit-search-depth": 1500,
+  "release-search-depth": 1400,
   "packages": {
     ".": {
-      "release-type": "go"
+      "release-type": "go",
+      "pull-request-header": "I have created a release for you"
     }
   },
   "changelog": {
