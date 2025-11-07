@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.35](https://github.com/openkcm/dummy-service/compare/v2.0.34...v2.0.35) (2025-11-07)
+
+
+### Bug Fixes
+
+* move the release files ([#367](https://github.com/openkcm/dummy-service/issues/367)) ([269f66a](https://github.com/openkcm/dummy-service/commit/269f66a16fed65c31bda650278b950d1e7ee4513))
+
 ## [2.0.34](https://github.com/openkcm/dummy-service/compare/v2.0.33...v2.0.34) (2025-11-06)
 
 
