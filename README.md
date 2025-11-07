@@ -1,1 +1,3 @@
-Only for testing CI/CD.
+# Dummy Service
+
+TODO: add here some info
