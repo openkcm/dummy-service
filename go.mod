@@ -4,7 +4,7 @@ go 1.24.3
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/openkcm/common-sdk v1.5.2
+	github.com/openkcm/common-sdk v1.6.0
 	github.com/samber/oops v1.19.3
 	github.com/veqryn/slog-context v0.8.0
 	go.opentelemetry.io/otel v1.38.0
