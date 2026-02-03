@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.39](https://github.com/openkcm/dummy-service/compare/v2.0.38...v2.0.39) (2026-02-03)
+
+
+### Bug Fixes
+
+* fake modification ([a204333](https://github.com/openkcm/dummy-service/commit/a204333ba7a2b0c8adf8642175752f69b8dd567e))
+* Taskfile.yaml modification ([d6713e8](https://github.com/openkcm/dummy-service/commit/d6713e8bb076ef5ff4d9a71e251ae22207ebd25c))
+
 ## [2.0.38](https://github.com/openkcm/dummy-service/compare/v2.0.37...v2.0.38) (2026-02-03)
 
 
