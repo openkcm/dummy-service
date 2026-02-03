@@ -8,7 +8,7 @@ includes:
     vars:
       CODE_DIRS: '{{.ROOT_DIR}}/pkg/... {{.ROOT_DIR}}/cmd/... {{.ROOT_DIR}}/test/... {{.ROOT_DIR}}/internal/...'
       COMPONENTS: 'dummy-service dummy-service-second'
-      DESTINATION_COMPONENT_NAME: dummy-service-second
+      DESTINATION_COMPONENT_NAME: dummy-service-2
       CORE_IMAGE_NAME: "dummy-service"
       PLUGIN_IMAGE_NAMES: "dummy-plugins"
       DOCKER_FILE_COMPOSITE_IDENTIFIER: "dummy-service"
