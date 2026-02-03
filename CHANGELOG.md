@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.36](https://github.com/openkcm/dummy-service/compare/v2.0.35...v2.0.36) (2026-02-03)
+
+
+### Bug Fixes
+
+* taskfile composite image identifier ([feba82b](https://github.com/openkcm/dummy-service/commit/feba82b86dd8b1b0001305c23caf1ffcdfaff461))
+
 ## [2.0.35](https://github.com/openkcm/dummy-service/compare/v2.0.34...v2.0.35) (2026-02-03)
 
 
