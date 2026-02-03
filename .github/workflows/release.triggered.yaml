@@ -2,9 +2,6 @@ name: New Release (Manual Trigger)
 
 on:
   workflow_dispatch:
-  # Triggered by the Plugin Repos
-  repository_dispatch:
-    types: [ plugin-update ]
 
 permissions:
   contents: read
