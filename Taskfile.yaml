@@ -11,6 +11,6 @@ includes:
       DESTINATION_COMPONENT_NAME: dummy-service-second
       CORE_IMAGE_NAME: "dummy-service"
       PLUGIN_IMAGE_NAMES: "dummy-plugins"
-      DOCKER_FILE_IDENTIFIER: "dummy-service"
+      DOCKER_FILE_COMPOSITE_IDENTIFIER: "dummy-service"
       IMG_COMPONENTS: 'dummy-service dummy-service-2'
       CHART_COMPONENTS: 'dummy-service dummy-service-second'
