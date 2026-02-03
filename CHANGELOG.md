@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.37](https://github.com/openkcm/dummy-service/compare/v2.0.36...v2.0.37) (2026-02-03)
+
+
+### Bug Fixes
+
+* taskfile DESTINATION_COMPONENT_NAME variable ([64431c9](https://github.com/openkcm/dummy-service/commit/64431c9e3068d85a1bc2a1928ae424c2bc4c53d5))
+
 ## [2.0.36](https://github.com/openkcm/dummy-service/compare/v2.0.35...v2.0.36) (2026-02-03)
 
 
