@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.0.38](https://github.com/openkcm/dummy-service/compare/v2.0.37...v2.0.38) (2026-02-03)
+
+
+### Bug Fixes
+
+* fake modification ([9418d2b](https://github.com/openkcm/dummy-service/commit/9418d2b87ac955129b33ca35b13c25a7a210bd2e))
+
+## [2.0.37](https://github.com/openkcm/dummy-service/compare/v2.0.36...v2.0.37) (2026-02-03)
+
+
+### Bug Fixes
+
+* taskfile DESTINATION_COMPONENT_NAME variable ([64431c9](https://github.com/openkcm/dummy-service/commit/64431c9e3068d85a1bc2a1928ae424c2bc4c53d5))
+
+## [2.0.36](https://github.com/openkcm/dummy-service/compare/v2.0.35...v2.0.36) (2026-02-03)
+
+
+### Bug Fixes
+
+* taskfile composite image identifier ([feba82b](https://github.com/openkcm/dummy-service/commit/feba82b86dd8b1b0001305c23caf1ffcdfaff461))
+
+## [2.0.35](https://github.com/openkcm/dummy-service/compare/v2.0.34...v2.0.35) (2026-02-03)
+
+
+### Bug Fixes
+
+* move the release files ([#367](https://github.com/openkcm/dummy-service/issues/367)) ([269f66a](https://github.com/openkcm/dummy-service/commit/269f66a16fed65c31bda650278b950d1e7ee4513))
+
 ## [2.0.34](https://github.com/openkcm/dummy-service/compare/v2.0.33...v2.0.34) (2025-11-06)
 
 
