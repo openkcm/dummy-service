@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.41](https://github.com/openkcm/dummy-service/compare/v2.0.40...v2.0.41) (2026-02-04)
+
+
+### Bug Fixes
+
+* REadme modification ([73f4553](https://github.com/openkcm/dummy-service/commit/73f4553d0e9af19030d6ab0914bf1467ec215816))
+
 ## [2.0.40](https://github.com/openkcm/dummy-service/compare/v2.0.39...v2.0.40) (2026-02-04)
 
 
