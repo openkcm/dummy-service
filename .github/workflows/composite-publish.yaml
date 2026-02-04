@@ -1,0 +1,19 @@
+name: Composite Publish
+
+on:
+  # Triggered by the Plugin Repos
+  repository_dispatch:
+    types: [ plugin-update ]
+
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  released:
+    uses: openkcm/build/.github/workflows/apps-composite-publish.svc.yaml@fix/release-process
+    with:
+      image_signing_enabled: true
+      ocm_signing_enabled: true
+    secrets: inherit

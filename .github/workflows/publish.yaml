@@ -1,10 +1,6 @@
 name: Publish
 
 on:
-  # Triggered by the Plugin Repos
-  repository_dispatch:
-    types: [ plugin-update ]
-
   push:
     tags:
       - v*
