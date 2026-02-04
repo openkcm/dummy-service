@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.42](https://github.com/openkcm/dummy-service/compare/v2.0.41...v2.0.42) (2026-02-04)
+
+
+### Bug Fixes
+
+* workflow modification ([ecfcd81](https://github.com/openkcm/dummy-service/commit/ecfcd81491d2a96b2016a18227ae4d8031cfec06))
+
 ## [2.0.41](https://github.com/openkcm/dummy-service/compare/v2.0.40...v2.0.41) (2026-02-04)
 
 
