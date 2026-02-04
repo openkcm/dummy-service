@@ -1,9 +1,8 @@
 name: Composite Publish
 
 on:
-  # Triggered by the Plugin Repos
-  repository_dispatch:
-    types: [ plugin-update ]
+#  repository_dispatch:
+#    types: [ plugin-update ]
 
 
 permissions:
