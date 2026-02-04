@@ -8,11 +8,11 @@ includes:
     vars:
       CODE_DIRS: '{{.ROOT_DIR}}/pkg/... {{.ROOT_DIR}}/cmd/... {{.ROOT_DIR}}/test/... {{.ROOT_DIR}}/internal/...'
       COMPONENTS: 'dummy-service dummy-service-second'
-      IMG_COMPONENTS: 'dummy-service dummy-service-2'
-      CHART_COMPONENTS: 'dummy-service dummy-service-second'
-      OVERWRITE_COMPONENTS: true
+#      IMG_COMPONENTS: 'dummy-service dummy-service-2'
+#      CHART_COMPONENTS: 'dummy-service dummy-service-second'
+#      OVERWRITE_COMPONENTS: true
 
-      COMPOSITE_DESTINATION_COMPONENT_NAME: dummy-service-2
-      COMPOSITE_DOCKER_FILE_IDENTIFIER: "dummy-service"
-      COMPOSITE_BASE_IMAGE_NAME: "dummy-service"
-      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins"
+#      COMPOSITE_DESTINATION_COMPONENT_NAME: dummy-service-2
+#      COMPOSITE_DOCKER_FILE_IDENTIFIER: "dummy-service"
+#      COMPOSITE_BASE_IMAGE_NAME: "dummy-service"
+#      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins"
