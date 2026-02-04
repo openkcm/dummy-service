@@ -4,6 +4,7 @@ on:
   # Triggered by the Plugin Repos
   repository_dispatch:
     types: [ plugin-update ]
+  workflow_dispatch:
 
 
 permissions:
