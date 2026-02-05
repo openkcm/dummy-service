@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.46](https://github.com/openkcm/dummy-service/compare/v2.0.45...v2.0.46) (2026-02-05)
+
+
+### Bug Fixes
+
+* enable back the composite publish ([95c14a3](https://github.com/openkcm/dummy-service/commit/95c14a35dda51ee1cabea6d39a5c6f08ddaff249))
+
 ## [2.0.45](https://github.com/openkcm/dummy-service/compare/v2.0.44...v2.0.45) (2026-02-04)
 
 
