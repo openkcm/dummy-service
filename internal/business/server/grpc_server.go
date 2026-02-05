@@ -18,8 +18,7 @@ import (
 // createGRPCServer creates the gRPC server using the given config
 func createGRPCServer(_ context.Context, _ *config.Config) (*grpc.Server, error) {
 	// Create the gRPC server options
-	var opts []grpc.ServerOption
-
+	opts := make([]grpc.ServerOption, 0, 1)
 	opts = append(opts, grpc.StatsHandler(otlp.NewServerHandler()))
 
 	grpcServer := grpc.NewServer(opts...)

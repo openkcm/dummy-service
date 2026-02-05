@@ -39,7 +39,7 @@ var (
 //   - 1
 func run(ctx context.Context) error {
 	// Load Configuration
-	defaultValues := map[string]interface{}{}
+	defaultValues := map[string]any{}
 	cfg := &config.Config{}
 
 	err := commoncfg.LoadConfig(cfg, defaultValues, "/etc/dummy-service", "$HOME/.dummy-service", ".")
@@ -76,7 +76,7 @@ func run(ctx context.Context) error {
 			),
 		)
 
-		healthOptions := make([]health.Option, 0)
+		healthOptions := make([]health.Option, 0, 3)
 		healthOptions = append(healthOptions,
 			health.WithDisabledAutostart(),
 			health.WithTimeout(5*time.Second),
