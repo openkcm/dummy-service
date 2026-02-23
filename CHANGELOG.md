@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.48](https://github.com/openkcm/dummy-service/compare/v2.0.47...v2.0.48) (2026-02-23)
+
+
+### Bug Fixes
+
+* add SKIP_VALIDATION_TESTS ([31d30c2](https://github.com/openkcm/dummy-service/commit/31d30c22d38917c46e25f42bb8b6dad2885ec760))
+
 ## [2.0.47](https://github.com/openkcm/dummy-service/compare/v2.0.46...v2.0.47) (2026-02-05)
 
 
