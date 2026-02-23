@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.49](https://github.com/openkcm/dummy-service/compare/v2.0.48...v2.0.49) (2026-02-23)
+
+
+### Bug Fixes
+
+* add pull-requests: read ([28989b7](https://github.com/openkcm/dummy-service/commit/28989b7fdce9ab96d7932f30670e8df05477fb04))
+
 ## [2.0.48](https://github.com/openkcm/dummy-service/compare/v2.0.47...v2.0.48) (2026-02-23)
 
 
