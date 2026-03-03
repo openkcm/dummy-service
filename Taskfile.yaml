@@ -10,6 +10,8 @@ includes:
       COMPONENTS: 'dummy-service dummy-service-second'
 
       DOCKER_FILE_IDENTIFIER: 'dummy-service-one'
+      IMAGE_NAME: 'dummy-service-one-xxx'
+
       SINGLE_IMAGE_MODE: 'true'
       OVERWRITE_COMPONENTS: 'true'
 
