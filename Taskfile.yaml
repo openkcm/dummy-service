@@ -14,7 +14,14 @@ includes:
 #      CHART_COMPONENTS: 'dummy-service dummy-service-second'
 #      OVERWRITE_COMPONENTS: true
 
-#      COMPOSITE_DESTINATION_COMPONENT_NAME: dummy-service-2
+#      COMPOSITE_COMPONENT_NAME: dummy-service-2
 #      COMPOSITE_DOCKER_FILE_IDENTIFIER: "dummy-service"
 #      COMPOSITE_BASE_IMAGE_NAME: "dummy-service"
 #      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins"
+
+#
+#      COMPOSITE_COMPONENTS:
+#        - COMPONENT_NAME: dummy-service-2
+#          DOCKER_FILE_IDENTIFIER: dummy-service
+#          BASE_IMAGE_NAME: dummy-service
+#          PLUGINS_IMAGE_NAME: dummy-plugins
