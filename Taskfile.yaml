@@ -9,6 +9,7 @@ includes:
       CODE_DIRS: '{{.ROOT_DIR}}/pkg/... {{.ROOT_DIR}}/cmd/... {{.ROOT_DIR}}/test/... {{.ROOT_DIR}}/internal/...'
       COMPONENTS: 'dummy-service dummy-service-second'
 
+      IMG_COMPONENTS: 'dummy-service-one-xxx'
       DOCKER_FILE_IDENTIFIER: 'dummy-service-one'
       IMAGE_NAME: 'dummy-service-one-xxx'
 
