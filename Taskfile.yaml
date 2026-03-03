@@ -8,7 +8,11 @@ includes:
     vars:
       CODE_DIRS: '{{.ROOT_DIR}}/pkg/... {{.ROOT_DIR}}/cmd/... {{.ROOT_DIR}}/test/... {{.ROOT_DIR}}/internal/...'
       COMPONENTS: 'dummy-service dummy-service-second'
-#      SINGLE_IMAGE_MODE: 'false'
+
+      DOCKER_FILE_IDENTIFIER: 'dummy-service-one'
+      SINGLE_IMAGE_MODE: 'true'
+      OVERWRITE_COMPONENTS: 'true'
+
 #      SKIP_VALIDATION_TESTS: 'true'
 
 #      IMG_COMPONENTS: 'dummy-service dummy-service-2'
