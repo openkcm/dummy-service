@@ -28,8 +28,8 @@ includes:
 #      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins"
 
 #
-#      COMPOSITE_COMPONENTS:
-#        - COMPONENT_NAME: dummy-service-2
-#          DOCKER_FILE_IDENTIFIER: dummy-service
-#          BASE_IMAGE_NAME: dummy-service
-#          PLUGINS_IMAGE_NAME: dummy-plugins
+      COMPOSITE_COMPONENTS:
+        - COMPONENT_NAME: dummy-service-one-xxx-2
+          DOCKER_FILE_IDENTIFIER: dummy-service
+          BASE_IMAGE_NAME: dummy-service-one-xxx
+          PLUGINS_IMAGE_NAME: dummy-plugins
