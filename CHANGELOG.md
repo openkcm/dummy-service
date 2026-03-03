@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.59](https://github.com/openkcm/dummy-service/compare/v2.0.58...v2.0.59) (2026-03-03)
+
+
+### Bug Fixes
+
+* COMPOSITE_COMPONENTS variable ([62ccd32](https://github.com/openkcm/dummy-service/commit/62ccd32e4305659816b9bd5dc6ba377ac4c65e71))
+
 ## [2.0.58](https://github.com/openkcm/dummy-service/compare/v2.0.57...v2.0.58) (2026-03-03)
 
 
