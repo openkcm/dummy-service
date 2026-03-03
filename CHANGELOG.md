@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.52](https://github.com/openkcm/dummy-service/compare/v2.0.51...v2.0.52) (2026-03-03)
+
+
+### Bug Fixes
+
+* update the Taskfile.yaml ([1b0445f](https://github.com/openkcm/dummy-service/commit/1b0445f6ad1f24d4c49dd70d49d18e25a33a1426))
+
 ## [2.0.51](https://github.com/openkcm/dummy-service/compare/v2.0.50...v2.0.51) (2026-03-03)
 
 
