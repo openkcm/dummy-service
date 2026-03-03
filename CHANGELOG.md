@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.58](https://github.com/openkcm/dummy-service/compare/v2.0.57...v2.0.58) (2026-03-03)
+
+
+### Bug Fixes
+
+* update the publish.yaml ([98eadcd](https://github.com/openkcm/dummy-service/commit/98eadcdedd58d6aceb962caab933bc113a350ca3))
+
 ## [2.0.57](https://github.com/openkcm/dummy-service/compare/v2.0.56...v2.0.57) (2026-03-03)
 
 
