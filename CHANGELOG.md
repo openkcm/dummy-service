@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.51](https://github.com/openkcm/dummy-service/compare/v2.0.50...v2.0.51) (2026-03-03)
+
+
+### Bug Fixes
+
+* add Makefile.cmk ([f4ef2e7](https://github.com/openkcm/dummy-service/commit/f4ef2e7dafb46eae2c3147c829711f021bfb1564))
+
 ## [2.0.50](https://github.com/openkcm/dummy-service/compare/v2.0.49...v2.0.50) (2026-03-03)
 
 
