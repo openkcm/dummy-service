@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.62](https://github.com/openkcm/dummy-service/compare/v2.0.61...v2.0.62) (2026-03-04)
+
+
+### Bug Fixes
+
+* add more components ([7075ac0](https://github.com/openkcm/dummy-service/commit/7075ac00b8f5e548cb282d02a0d9da20b8dab09c))
+
 ## [2.0.61](https://github.com/openkcm/dummy-service/compare/v2.0.60...v2.0.61) (2026-03-04)
 
 
