@@ -7,29 +7,32 @@ includes:
     excludes: [] # put task names in here which are overwritten in this file
     vars:
       CODE_DIRS: '{{.ROOT_DIR}}/pkg/... {{.ROOT_DIR}}/cmd/... {{.ROOT_DIR}}/test/... {{.ROOT_DIR}}/internal/...'
-      COMPONENTS: 'dummy-service dummy-service-second'
-
-      IMG_COMPONENTS: 'dummy-service-one-xxx dummy-service-one-xxx-2'
-      DOCKER_FILE_IDENTIFIER: 'dummy-service-one'
-      IMAGE_NAME: 'dummy-service-one-xxx'
-
-      SINGLE_IMAGE_MODE: 'true'
+      COMPONENTS: 'api-server db-migrator event-reconciler task-cli task-scheduler task-worker tenant-manager tenant-manager-cli'
+      CHART_COMPONENTS: 'dummy-service dummy-service-second'
+      SKIP_VALIDATION_TESTS: 'true'
       OVERWRITE_COMPONENTS: 'true'
 
-#      SKIP_VALIDATION_TESTS: 'true'
+      SINGLE_IMAGE_NAME: 'cmk-full-base'
+      SINGLE_IMAGE_MODE: 'true'
 
-#      IMG_COMPONENTS: 'dummy-service dummy-service-2'
-#      CHART_COMPONENTS: 'dummy-service dummy-service-second'
-#      OVERWRITE_COMPONENTS: true
+      IMG_COMPONENTS: 'cmk-full-base cmk-full-plugins api-server event-reconciler db-migrator task-cli task-scheduler task-worker tenant-manager tenant-manager-cli'
+      DOCKER_FILE_IDENTIFIER: 'cmk-full-base'
 
-#      COMPOSITE_COMPONENT_NAME: dummy-service-2
-#      COMPOSITE_DOCKER_FILE_IDENTIFIER: "dummy-service"
-#      COMPOSITE_BASE_IMAGE_NAME: "dummy-service:dummy-service"
-#      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins:dummy-plugins"
 
-#
+      #      SKIP_VALIDATION_TESTS: 'true'
+
+      #      IMG_COMPONENTS: 'dummy-service dummy-service-2'
+      #      CHART_COMPONENTS: 'dummy-service dummy-service-second'
+      #      OVERWRITE_COMPONENTS: true
+
+      #      COMPOSITE_COMPONENT_NAME: dummy-service-2
+      #      COMPOSITE_DOCKER_FILE_IDENTIFIER: "dummy-service"
+      #      COMPOSITE_BASE_IMAGE_NAME: "dummy-service:dummy-service"
+      #      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins:dummy-plugins"
+
+      #
       COMPOSITE_COMPONENTS:
-        - COMPONENT_NAME: dummy-service-one-xxx-2
-          DOCKER_FILE_IDENTIFIER: dummy-service
-          BASE_IMAGE_NAME: dummy-service:dummy-service-one-xxx
+        - COMPONENT_NAME: cmk-full-plugins
+          DOCKER_FILE_IDENTIFIER: cmk-full-plugins
+          BASE_IMAGE_NAME: dummy-service:cmk-full-base
           PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
