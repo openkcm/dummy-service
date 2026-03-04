@@ -16,7 +16,7 @@ includes:
       SINGLE_IMAGE_NAME: 'cmk-full-base'
       SINGLE_DOCKER_FILE_IDENTIFIER: 'cmk-full-base'
 
-      IMG_COMPONENTS: 'cmk-full-base cmk-full-plugins api-server event-reconciler db-migrator task-cli task-scheduler task-worker tenant-manager tenant-manager-cli'
+      IMG_COMPONENTS: 'cmk-full-base cmk-full-plugins api-server api-server-plugins event-reconciler db-migrator task-cli task-scheduler task-scheduler-plugins task-worker tenant-manager tenant-manager-cli'
 
 
       #      SKIP_VALIDATION_TESTS: 'true'
