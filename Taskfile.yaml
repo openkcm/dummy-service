@@ -24,8 +24,8 @@ includes:
 
 #      COMPOSITE_COMPONENT_NAME: dummy-service-2
 #      COMPOSITE_DOCKER_FILE_IDENTIFIER: "dummy-service"
-#      COMPOSITE_BASE_IMAGE_NAME: "dummy-service"
-#      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins"
+#      COMPOSITE_BASE_IMAGE_NAME: "dummy-service:dummy-service"
+#      COMPOSITE_PLUGINS_IMAGE_NAME: "dummy-plugins:dummy-plugins"
 
 #
       COMPOSITE_COMPONENTS:
