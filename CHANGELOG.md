@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.60](https://github.com/openkcm/dummy-service/compare/v2.0.59...v2.0.60) (2026-03-04)
+
+
+### Bug Fixes
+
+* update the Taskfile ([2392d33](https://github.com/openkcm/dummy-service/commit/2392d334bf75990f76e30da7731c38d572e8cdf4))
+
 ## [2.0.59](https://github.com/openkcm/dummy-service/compare/v2.0.58...v2.0.59) (2026-03-03)
 
 
