@@ -36,3 +36,11 @@ includes:
           DOCKER_FILE_IDENTIFIER: cmk-full-plugins
           BASE_IMAGE_NAME: dummy-service:cmk-full-base
           PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
+        - COMPONENT_NAME: api-server-plugins
+          DOCKER_FILE_IDENTIFIER: cmk-api-server-plugins
+          BASE_IMAGE_NAME: dummy-service:api-server
+          PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
+        - COMPONENT_NAME: task-scheduler-plugins
+          DOCKER_FILE_IDENTIFIER: cmk-task-scheduler-plugins
+          BASE_IMAGE_NAME: dummy-service:task-scheduler
+          PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
