@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.61](https://github.com/openkcm/dummy-service/compare/v2.0.60...v2.0.61) (2026-03-04)
+
+
+### Bug Fixes
+
+* update the Taskfile and the publish workflow ([5beb5bd](https://github.com/openkcm/dummy-service/commit/5beb5bd72fce643fd013a6913fb26e94e41dc0f7))
+
 ## [2.0.60](https://github.com/openkcm/dummy-service/compare/v2.0.59...v2.0.60) (2026-03-04)
 
 
