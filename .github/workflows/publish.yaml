@@ -18,7 +18,7 @@ jobs:
   released:
     uses: openkcm/build/.github/workflows/publish.svc.yaml@main
     with:
-#      image_signing_enabled: true
-#      ocm_signing_enabled: true
+      image_signing_enabled: true
+      ocm_signing_enabled: true
       build_push_composite_enabled: true
     secrets: inherit
