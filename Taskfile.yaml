@@ -12,11 +12,11 @@ includes:
       SKIP_VALIDATION_TESTS: 'true'
       OVERWRITE_COMPONENTS: 'true'
 
-      BUILD_IMAGE_MODE: 'single-multi'
+      BUILD_IMAGE_MODE: 'single'
       SINGLE_IMAGE_NAME: 'cmk-full-base'
       SINGLE_DOCKER_FILE_IDENTIFIER: 'cmk-full-base'
 
-      IMG_COMPONENTS: 'cmk-full-base cmk-full-plugins api-server event-reconciler db-migrator task-cli task-scheduler task-worker tenant-manager tenant-manager-cli'
+      IMG_COMPONENTS: 'cmk-full-base cmk-full-plugins'
 
 
       #      SKIP_VALIDATION_TESTS: 'true'
