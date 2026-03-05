@@ -13,10 +13,10 @@ includes:
       OVERWRITE_COMPONENTS: 'true'
 
       BUILD_IMAGE_MODE: 'single-multi'
-      SINGLE_IMAGE_NAME: 'cmk-full-base'
-      SINGLE_DOCKER_FILE_IDENTIFIER: 'cmk-full-base'
+      SINGLE_IMAGE_NAME: 'dummy-service-full-base'
+      SINGLE_DOCKER_FILE_IDENTIFIER: 'dummy-service-full-base'
 
-      IMG_COMPONENTS: 'cmk-full-base cmk-full-plugins api-server api-server-plugins event-reconciler db-migrator task-cli task-scheduler task-scheduler-plugins task-worker tenant-manager tenant-manager-cli'
+      IMG_COMPONENTS: 'dummy-service-full-base dummy-service-full-plugins api-server api-server-plugins event-reconciler db-migrator task-cli task-scheduler task-scheduler-plugins task-worker tenant-manager tenant-manager-cli'
 
 
       #      SKIP_VALIDATION_TESTS: 'true'
@@ -32,15 +32,15 @@ includes:
 
       #
       COMPOSITE_COMPONENTS:
-        - COMPONENT_NAME: cmk-full-plugins
-          DOCKER_FILE_IDENTIFIER: cmk-full-plugins
-          BASE_IMAGE_NAME: dummy-service:cmk-full-base
+        - COMPONENT_NAME: dummy-service-full-plugins
+          DOCKER_FILE_IDENTIFIER: dummy-service-full-plugins
+          BASE_IMAGE_NAME: dummy-service:dummy-service-full-base
           PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
         - COMPONENT_NAME: api-server-plugins
-          DOCKER_FILE_IDENTIFIER: cmk-api-server-plugins
+          DOCKER_FILE_IDENTIFIER: dummy-service-api-server-plugins
           BASE_IMAGE_NAME: dummy-service:api-server
           PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
         - COMPONENT_NAME: task-scheduler-plugins
-          DOCKER_FILE_IDENTIFIER: cmk-task-scheduler-plugins
+          DOCKER_FILE_IDENTIFIER: dummy-service-task-scheduler-plugins
           BASE_IMAGE_NAME: dummy-service:task-scheduler
           PLUGINS_IMAGE_NAME: dummy-plugins:dummy-plugins
