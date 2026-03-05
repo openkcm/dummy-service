@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.68](https://github.com/openkcm/dummy-service/compare/v2.0.67...v2.0.68) (2026-03-05)
+
+
+### Bug Fixes
+
+* include the docker files to be considered ([9dea288](https://github.com/openkcm/dummy-service/commit/9dea2885d996fb77f3c0292d1fae48d794e62da7))
+
 ## [2.0.67](https://github.com/openkcm/dummy-service/compare/v2.0.66...v2.0.67) (2026-03-04)
 
 
