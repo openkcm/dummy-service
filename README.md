@@ -1,3 +1,3 @@
 # Dummy Service
 
-TODO: add here some info something in additional;!
+<p align="center"><img alt="Bundesministerium für Wirtschaft und Energie (BMWE)-EU funding logo" src="https://apeirora.eu/assets/img/BMWK-EU.png" width="400"/></p>
